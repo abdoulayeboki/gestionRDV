@@ -1,30 +1,10 @@
 <?php
-class specialite{
+
+class Specialite{
     private $nomSpecialite;
     private $description;
-    private  $idService;
-    public function __construct($n,$d,$id){
-        $this->nomSpecialite=$n;
-        $this->description=$d;
-        $this->idService=$id;
-        
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getIdSpecialite()
-    {
-        return $this->idSpecialite;
-    }
-
-    /**
-     * @param mixed $idSpecialite
-     */
-    public function setIdSpecialite($idSpecialite)
-    {
-        $this->idSpecialite = $idSpecialite;
-    }
+    private $idService;
+   
 
     /**
      * @return mixed
@@ -35,22 +15,6 @@ class specialite{
     }
 
     /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdService()
-    {
-        return $this->idService;
-    }
-
-    /**
      * @param mixed $nomSpecialite
      */
     public function setNomSpecialite($nomSpecialite)
@@ -58,14 +22,27 @@ class specialite{
         $this->nomSpecialite = $nomSpecialite;
     }
 
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
+    public function __construct(array $donnes) {
+        $this->hydrater($donnes);
     }
-
+    
+    function hydrater(array $donnes ){
+        foreach($donnes as $cle=>$value){
+            $methode="set".ucfirst($cle);
+            if(method_exists($this,$methode)){
+                $this-> $methode("$value");
+            }
+        }
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getIdService()
+    {
+        return $this->idService;
+    }
+    
     /**
      * @param mixed $idService
      */
@@ -73,7 +50,26 @@ class specialite{
     {
         $this->idService = $idService;
     }
-
-   
+    
+ 
+    
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    
+ 
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+    
+  
     
 }
