@@ -5,13 +5,20 @@ class Patient{
     private  $dateNaissance;
     private $tel;
     private $matricule;
-    public function __construct($n,$p,$d,$t,$m){
-        $this->nom=$n;
-        $this->prenom=$p;
-        $this->dateNaissance=$d;
-        $this->tel=$t;
-        $this->matricule=$m;
+    
+    
+    public function __construct(array $donnes){
+        $this->hydrater($donnes);
     }
+    function hydrater(array $donnes ){
+        foreach($donnes as $cle=>$value){
+            $methode="set".ucfirst($cle);
+            if(method_exists($this,$methode)){
+                $this-> $methode("$value");
+            }
+        }
+    }
+    
     
     /**
      * @return mixed
@@ -54,30 +61,6 @@ class Patient{
     }
 
     /**
-     * @return multitype:
-     */
-    public function getDossiers()
-    {
-        return $this->dossiers;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSecretaire()
-    {
-        return $this->secretaire;
-    }
-
-    /**
-     * @return multitype:
-     */
-    public function getRdv()
-    {
-        return $this->rdv;
-    }
-
-    /**
      * @param mixed $nom
      */
     public function setNom($nom)
@@ -116,8 +99,6 @@ class Patient{
     {
         $this->matricule = $matricule;
     }
-
-   
 
     
 }

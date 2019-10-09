@@ -3,6 +3,20 @@
 class Service{
     private $nomService;
     private $description;
+    public function __construct(array $donnes) {
+        $this->hydrater($donnes);
+       }
+   
+       function hydrater(array $donnes ){
+           foreach($donnes as $cle=>$value){
+               $methode="set".ucfirst($cle);
+               if(method_exists($this,$methode)){
+                  $this-> $methode("$value");
+               }
+           }
+      }
+
+
     /**
      * @return mixed
      */

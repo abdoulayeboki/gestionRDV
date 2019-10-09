@@ -1,13 +1,46 @@
 <?php
 abstract class Utilisateur{
-    private $nom;
-    private $prenom;
-    private  $dateNaissance;
-    private $tel;
-    private $matricule;
+    protected $nom;
+    protected  $prenom;
+    protected  $dateNaissance;
+    protected $tel;
+    protected $matricule;
+    protected $niveauStatut;
     const NIVEAU_3=3;
     const NIVEAU_2=2;
     const NIVEAU_1=1;
+
+
+
+    public function __construct(array $donnes) {
+        $this->hydrater($donnes);
+       }
+   
+       function hydrater(array $donnes ){
+           foreach($donnes as $cle=>$value){
+               $methode="set".ucfirst($cle);
+               if(method_exists($this,$methode)){
+                  $this-> $methode("$value");
+               }
+           }
+      }
+     
+          /**
+     * @return mixed
+     */
+    public function getNiveauStatut()
+    {
+        return $this->niveauStatut;
+    }
+
+    /**
+     * @param mixed $niveauStatut
+     */
+    public function setNiveauStatut($niveauStatut)
+    {
+        $this->niveauStatut = $niveauStatut;
+    }
+
     /**
      * @return mixed
      */
@@ -88,17 +121,5 @@ abstract class Utilisateur{
         $this->matricule = $matricule;
     }
 
-    public function __construct(array $donnes) {
-     $this->hydrater($donnes);
-    }
-
-    function hydrater(array $donnes ){
-        foreach($donnes as $cle=>$value){
-            $methode="set".ucfirst($cle);
-            if(method_exists($this,$methode)){
-               $this-> $methode("$value");
-            }
-        }
-   }
    
 }
