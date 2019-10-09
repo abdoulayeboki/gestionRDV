@@ -1,11 +1,14 @@
 <?php
 class DossierMedical{
-    private $nomExamen,
+    private $idDossier,
+            $nomExamen,
             $resultatExamen,
             $ordonnance,
             $dateExamen,
             $idUtilisateur,
             $idPatient;
+ 
+
             public function __construct(array $donnes){
                 $this->hydrater($donnes);
             }
@@ -18,6 +21,22 @@ class DossierMedical{
                 }
             }
             
+            /**
+             * @return mixed
+             */
+            public function getIdDossier()
+            {
+                return $this->idDossier;
+            }
+            
+            /**
+             * @param mixed $idDossier
+             */
+            
+            public function setIdDossier($idDossier)
+            {
+                $this->idDossier = $idDossier;
+            }
     /**
      * @return mixed
      */
