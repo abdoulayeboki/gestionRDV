@@ -17,12 +17,22 @@ include_once("Connexion.php");
 //$m=new DossierMedical(array("nomExamen"=>"safrrs","idUtilisateur"=>1));
 //$m=new Rdv(array("motifRdv"=>"safrrs"));
 //$m=Connexion::getInstance();
-$m=new Medecin (array("nom"=>"safrrs","prenom"=>"abdoulaye"),1);
+$m=new Secretaire (array("nom"=>"safrrs","prenom"=>"abdoulaye"),1);
 //$a=new DossierMedical(array("idDossier"=>1,"nomExamen"=>"safrrs","resultatExamen"=>"pas cool","ordonnance"=>"para",
      //"dateExamen"=>"1998-12-25", "idUtilisateur"=>1,"idPatient"=>2));
-$m->deleteDossierMedical(5);
+     $tab=array(
+         'nom'=>"mass",
+         'prenom'=>'baba',
+         'adresse'=>"camara",
+         'dateNaissance'=>'1998-12-25',
+         'tel'=>'baba',
+         'matricule'=>"camar",
+     );
+    // $p=new Patient($tab);
+$m->deletePatient(6);
+$a=$m->unPatient(4);
 //echo $a->getResultatExamen();
-//echo var_dump($m);
+echo var_dump($a);
 // echo $m->getNom();
 // echo $m->getPrenom();
 // echo $m->getNiveauStatut();

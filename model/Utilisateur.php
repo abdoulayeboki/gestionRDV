@@ -1,5 +1,6 @@
 <?php
 abstract class Utilisateur{
+    protected $idUtilisateur;
     protected $nom;
     protected  $prenom;
     protected  $dateNaissance;
@@ -24,6 +25,24 @@ abstract class Utilisateur{
                }
            }
       }
+      
+      
+      /**
+       * @return mixed
+       */
+      public function getIdUtilisateur()
+      {
+          return $this->idUtilisateur;
+      }
+      
+      /**
+       * @param mixed $idUtilisateur
+       */
+      public function setIdUtilisateur($idUtilisateur)
+      {
+          $this->idUtilisateur = $idUtilisateur;
+      }
+      
      
           /**
      * @return mixed

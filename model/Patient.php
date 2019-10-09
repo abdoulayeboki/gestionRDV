@@ -1,12 +1,17 @@
 <?php
 class Patient{
+    private $idPatient;
     private $nom;
     private $prenom;
+    private $adresse;
     private  $dateNaissance;
     private $tel;
     private $matricule;
     
     
+ 
+
+
     public function __construct(array $donnes){
         $this->hydrater($donnes);
     }
@@ -18,7 +23,40 @@ class Patient{
             }
         }
     }
+
     
+    
+    /**
+     * @return mixed
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+    
+    /**
+     * @param mixed $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getIdPatient()
+    {
+        return $this->idPatient;
+    }
+    
+    /**
+     * @param mixed $idPatient
+     */
+    public function setIdPatient($idPatient)
+    {
+        $this->idPatient = $idPatient;
+    }
     
     /**
      * @return mixed
