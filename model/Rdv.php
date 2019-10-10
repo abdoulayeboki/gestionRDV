@@ -5,10 +5,9 @@ class Rdv{
     $heureDebut,
     $heureFin,
     $dateRdv,
-    $idUtilisateur,
-    $idPatient;
-
- 
+    $idSecretaire,
+    $idPatient,
+    $idMedecin;
 
     public function __construct(array $donnes){
         $this->hydrater($donnes);
@@ -70,13 +69,7 @@ class Rdv{
         return $this->dateRdv;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIdUtilisateur()
-    {
-        return $this->idUtilisateur;
-    }
+
 
     /**
      * @return mixed
@@ -118,12 +111,37 @@ class Rdv{
         $this->dateRdv = $dateRdv;
     }
 
+    
     /**
-     * @param mixed $idUtilisateur
+     * @return mixed
      */
-    public function setIdUtilisateur($idUtilisateur)
+    public function getIdSecretaire()
     {
-        $this->idUtilisateur = $idUtilisateur;
+        return $this->idSecretaire;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getIdMedecin()
+    {
+        return $this->idMedecin;
+    }
+    
+    /**
+     * @param mixed $idSecretaire
+     */
+    public function setIdSecretaire($idSecretaire)
+    {
+        $this->idSecretaire = $idSecretaire;
+    }
+    
+    /**
+     * @param mixed $idMedecin
+     */
+    public function setIdMedecin($idMedecin)
+    {
+        $this->idMedecin = $idMedecin;
     }
 
     /**

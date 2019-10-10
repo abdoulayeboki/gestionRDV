@@ -4,7 +4,25 @@ class Specialite{
     private $nomSpecialite;
     private $description;
     private $idService;
+    private $idSpecialite;
+    
    
+
+    /**
+     * @return mixed
+     */
+    public function getIdSpecialite()
+    {
+        return $this->idSpecialite;
+    }
+
+    /**
+     * @param mixed $idSpecialite
+     */
+    public function setIdSpecialite($idSpecialite)
+    {
+        $this->idSpecialite = $idSpecialite;
+    }
 
     /**
      * @return mixed
