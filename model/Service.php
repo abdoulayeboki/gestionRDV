@@ -2,7 +2,10 @@
 
 class Service{
     private $nomService;
+    private $idService;
     private $description;
+   
+
     public function __construct(array $donnes) {
         $this->hydrater($donnes);
        }
@@ -15,7 +18,22 @@ class Service{
                }
            }
       }
-
+      
+      /**
+       * @return mixed
+       */
+      public function getIdService()
+      {
+          return $this->idService;
+      }
+      
+      /**
+       * @param mixed $idService
+       */
+      public function setIdService($idService)
+      {
+          $this->idService = $idService;
+      }
 
     /**
      * @return mixed

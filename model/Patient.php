@@ -8,8 +8,7 @@ class Patient{
     private $tel;
     private $matricule;
     
-    
- 
+
 
 
     public function __construct(array $donnes){
