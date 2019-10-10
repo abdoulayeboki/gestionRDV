@@ -1,11 +1,14 @@
 <?php
 class Rdv{
-    private $motifRdv,
+    private  $idRdv,
+    $motifRdv,
     $heureDebut,
     $heureFin,
     $dateRdv,
     $idUtilisateur,
     $idPatient;
+
+ 
 
     public function __construct(array $donnes){
         $this->hydrater($donnes);
@@ -19,6 +22,21 @@ class Rdv{
         }
     }
     
+    /**
+     * @return mixed
+     */
+    public function getIdRdv()
+    {
+        return $this->idRdv;
+    }
+    
+    /**
+     * @param mixed $idRdv
+     */
+    public function setIdRdv($idRdv)
+    {
+        $this->idRdv = $idRdv;
+    }
     
     /**
      * @return mixed

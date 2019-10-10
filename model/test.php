@@ -28,9 +28,19 @@ $m=new Secretaire (array("nom"=>"safrrs","prenom"=>"abdoulaye"),1);
          'tel'=>'baba',
          'matricule'=>"camar",
      );
+   $t=  array(
+         "idRdv"=>2,
+         "motifRdv"=>"safrrs",
+         'heureDebut'=>"12:30",
+           'heureFin'=>"13:00",
+           'dateRdv'=>"1998-12-25",
+           'idUtilisateur'=>9,
+           'idPatient'=>1
+     );
+     $r=new Rdv($t);
     // $p=new Patient($tab);
-$m->deletePatient(6);
-$a=$m->unPatient(4);
+$a=$m->unRdv(3);
+//$a=$m->unPatient(4);
 //echo $a->getResultatExamen();
 echo var_dump($a);
 // echo $m->getNom();

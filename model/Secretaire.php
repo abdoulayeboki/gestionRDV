@@ -67,7 +67,62 @@ class Secretaire extends Utilisateur{
         ));
     }
     
+       
+    public function addRdv(Rdv $rdv){
+        $bdd=Connexion::getInstance();
+        $req="insert into rdv (motifRdv,heureDebut,heureFin,dateRdv,idUtilisateur,
+         idPatient) values (:motifRdv,:heureDebut,:heureFin,:dateRdv,:idUtilisateur,:idPatient)";
+        $rep=$bdd->prepare($req);
+        $rep->execute(array(
+           'motifRdv'=>$rdv->getMotifRdv(),
+           'heureDebut'=>$rdv->getHeureDebut(),
+           'heureFin'=>$rdv->getHeureFin(),
+           'dateRdv'=>$rdv->getDateRdv(),
+           'idUtilisateur'=>$rdv->getIdUtilisateur(),
+           'idPatient'=>$rdv->getIdPatient()
+       ));
+   }
     
+   public function updateRdv(Rdv $rdv){
+    $bdd=Connexion::getInstance();
+    $req="update  rdv set motifRdv=:motifRdv,heureDebut=:heureDebut,heureFin=:heureFin,
+    dateRdv=:dateRdv,idUtilisateur=:idUtilisateur,idPatient=:idPatient where idRdv=". $rdv->getIdRdv();
+    $rep=$bdd->prepare($req);
+    $rep->execute(array(
+       'motifRdv'=>$rdv->getMotifRdv(),
+       'heureDebut'=>$rdv->getHeureDebut(),
+       'heureFin'=>$rdv->getHeureFin(),
+       'dateRdv'=>$rdv->getDateRdv(),
+       'idUtilisateur'=>$rdv->getIdUtilisateur(),
+       'idPatient'=>$rdv->getIdPatient()
+   ));
+}
+
+ //supprimer un rdv
+ public function deleteRdv($id){
+    $bdd=Connexion::getInstance();
+    $req="delete  from rdv where idRdv=$id";
+    $rep=$bdd->prepare($req);
+    $rep->execute();
+    
+}
+
+ //recuperer tous les Rdv
+ public function selectRdv(){
+    $bdd=Connexion::getInstance();
+    $req="select * from rdv";
+    $rep=$bdd->query($req);
+    return $rep->fetchall();
+    
+}
+ //recuperer un Rdv
+ public function unRdv($id){
+    $bdd=Connexion::getInstance();
+    $req="select * from rdv where idRdv=$id ";
+    $rep=$bdd->query($req);
+    return $rep->fetchall();
+    
+}
     /**
      * @return mixed
      */
