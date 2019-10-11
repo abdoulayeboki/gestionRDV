@@ -2,9 +2,9 @@
 include_once("Utilisateur.php");
 class Medecin extends Utilisateur{
     private $idSpecialite;
-    public function __construct( $donnes,$id) {
+    public function __construct( $donnes, $id) {
         parent::__construct($donnes);
-        $this->niveauStatut=Utilisateur::NIVEAU_1;
+        $this->idStatus=Utilisateur::NIVEAU_1;
         $this->idSpecialite=$id;
     }
 
@@ -67,6 +67,16 @@ public function updateDossierMedical(DossierMedical $dossier){
        'idPatient'=>$dossier->getIdPatient()
    ));
 }
+ //recuperer mes Rdv
+ public function mesRdv(){
+    $bdd=Connexion::getInstance();
+    $req="select * from rdv where idMedecin=".$this->idUtilisateur;
+    $rep=$bdd->query($req);
+    return $rep->fetchall();
+    
+}
+    
+
     /**
      * @return mixed
      */

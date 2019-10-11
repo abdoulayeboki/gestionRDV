@@ -4,7 +4,7 @@ class Secretaire extends Utilisateur{
     private $idService;
     public function __construct($donnes,$id){
     parent::__construct($donnes);
-    $this->niveauStatut=Utilisateur::NIVEAU_2;
+    $this->idStatus=Utilisateur::NIVEAU_2;
     $this->idService=$id;
     }
     
@@ -67,7 +67,64 @@ class Secretaire extends Utilisateur{
         ));
     }
     
+       
+    public function addRdv(Rdv $rdv){
+        $bdd=Connexion::getInstance();
+        $req="insert into rdv (motifRdv,heureDebut,heureFin,dateRdv,idSecretaire,
+         idPatient,idMedecin) values (:motifRdv,:heureDebut,:heureFin,:dateRdv,:idSecretaire,:idPatient,:idMedecin)";
+        $rep=$bdd->prepare($req);
+        $rep->execute(array(
+           'motifRdv'=>$rdv->getMotifRdv(),
+           'heureDebut'=>$rdv->getHeureDebut(),
+           'heureFin'=>$rdv->getHeureFin(),
+           'dateRdv'=>$rdv->getDateRdv(),
+           'idSecretaire'=>$rdv->getIdSecretaire(),
+           'idPatient'=>$rdv->getIdPatient(),
+           'idMedecin'=>$rdv->getIdMedecin()
+       ));
+   }
     
+   public function updateRdv(Rdv $rdv){
+    $bdd=Connexion::getInstance();
+    $req="update  rdv set motifRdv=:motifRdv,heureDebut=:heureDebut,heureFin=:heureFin,
+    dateRdv=:dateRdv,idSecretaire=:idSecretaire,idPatient=:idPatient,idMedecin=:idMedecin where idRdv=". $rdv->getIdRdv();
+    $rep=$bdd->prepare($req);
+    $rep->execute(array(
+       'motifRdv'=>$rdv->getMotifRdv(),
+       'heureDebut'=>$rdv->getHeureDebut(),
+       'heureFin'=>$rdv->getHeureFin(),
+       'dateRdv'=>$rdv->getDateRdv(),
+       'idSecretaire'=>$rdv->getIdSecretaire(),
+       'idPatient'=>$rdv->getIdPatient(),
+       'idMedecin'=>$rdv->getIdMedecin()
+   ));
+}
+
+ //supprimer un rdv
+ public function deleteRdv($id){
+    $bdd=Connexion::getInstance();
+    $req="delete  from rdv where idRdv=$id";
+    $rep=$bdd->prepare($req);
+    $rep->execute();
+    
+}
+
+ //recuperer tous les Rdv
+ public function selectRdv(){
+    $bdd=Connexion::getInstance();
+    $req="select * from rdv";
+    $rep=$bdd->query($req);
+    return $rep->fetchall();
+    
+}
+ //recuperer un Rdv
+ public function unRdv($id){
+    $bdd=Connexion::getInstance();
+    $req="select * from rdv where idRdv=$id ";
+    $rep=$bdd->query($req);
+    return $rep->fetchall();
+    
+}
     /**
      * @return mixed
      */

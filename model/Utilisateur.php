@@ -3,10 +3,12 @@ abstract class Utilisateur{
     protected $idUtilisateur;
     protected $nom;
     protected  $prenom;
+    protected $adresse;
     protected  $dateNaissance;
     protected $tel;
+    protected $email;
     protected $matricule;
-    protected $niveauStatut;
+    protected $idStatus;
     const NIVEAU_3=3;
     const NIVEAU_2=2;
     const NIVEAU_1=1;
@@ -25,8 +27,41 @@ abstract class Utilisateur{
                }
            }
       }
+
+      
+      /**
+       * @return mixed
+       */
+      public function getIdStatus()
+      {
+          return $this->idStatus;
+      }
+      
+      /**
+       * @param mixed $idStatus
+       */
+      public function setIdStatus($idStatus)
+      {
+          $this->idStatus = $idStatus;
+      }
       
       
+      
+      /**
+       * @return mixed
+       */
+      public function getAdresse()
+      {
+          return $this->adresse;
+      }
+      
+      /**
+       * @param mixed $adresse
+       */
+      public function setAdresse($adresse)
+      {
+          $this->adresse = $adresse;
+      }
       /**
        * @return mixed
        */
@@ -43,22 +78,7 @@ abstract class Utilisateur{
           $this->idUtilisateur = $idUtilisateur;
       }
       
-     
-          /**
-     * @return mixed
-     */
-    public function getNiveauStatut()
-    {
-        return $this->niveauStatut;
-    }
-
-    /**
-     * @param mixed $niveauStatut
-     */
-    public function setNiveauStatut($niveauStatut)
-    {
-        $this->niveauStatut = $niveauStatut;
-    }
+ 
 
     /**
      * @return mixed
@@ -139,6 +159,23 @@ abstract class Utilisateur{
     {
         $this->matricule = $matricule;
     }
+    
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+    
 
    
 }
