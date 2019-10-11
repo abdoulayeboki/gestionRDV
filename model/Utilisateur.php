@@ -28,6 +28,24 @@ abstract class Utilisateur{
                }
            }
       }
+
+      
+      /**
+       * @return mixed
+       */
+      public function getIdStatus()
+      {
+          return $this->idStatus;
+      }
+      
+      /**
+       * @param mixed $idStatus
+       */
+      public function setIdStatus($idStatus)
+      {
+          $this->idStatus = $idStatus;
+      }
+      
       
       /**
        * @return mixed

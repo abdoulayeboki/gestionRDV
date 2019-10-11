@@ -7,6 +7,7 @@ class Gestionnaire extends Utilisateur{
         $this->idStatus=Utilisateur::NIVEAU_3;
         
     }
+<<<<<<< HEAD
         //recuperer tous les medecin
         public function selectMedecin(){
             $bdd=Connexion::getInstance();
@@ -245,5 +246,8 @@ public function unSpecialite($id){
     return $rep->fetchall();
     
 }
+=======
+     
+>>>>>>> feature/f1
 
 }
