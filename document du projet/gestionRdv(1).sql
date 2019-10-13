@@ -315,30 +315,30 @@ ALTER TABLE `utilisateur`
 -- Constraints for table `dossierMedical`
 --
 ALTER TABLE `dossierMedical`
-  ADD CONSTRAINT `dossierMedical_patient0_FK` FOREIGN KEY (`idPatient`) REFERENCES `patient` (`idPatient`),
-  ADD CONSTRAINT `dossierMedical_utilisateur_FK` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`idUtilisateur`);
+  ADD CONSTRAINT `dossierMedical_patient0_FK` FOREIGN KEY (`idPatient`) REFERENCES `patient` (`idPatient`)  ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dossierMedical_utilisateur_FK` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`idUtilisateur`)  ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rdv`
 --
 ALTER TABLE `rdv`
   ADD CONSTRAINT `rdv_ibfk_1` FOREIGN KEY (`idMedecin`) REFERENCES `utilisateur` (`idUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rdv_patient0_FK` FOREIGN KEY (`idPatient`) REFERENCES `patient` (`idPatient`),
-  ADD CONSTRAINT `rdv_utilisateur_FK` FOREIGN KEY (`idSecretaire`) REFERENCES `utilisateur` (`idUtilisateur`);
+  ADD CONSTRAINT `rdv_patient0_FK` FOREIGN KEY (`idPatient`) REFERENCES `patient` (`idPatient`)  ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rdv_utilisateur_FK` FOREIGN KEY (`idSecretaire`) REFERENCES `utilisateur` (`idUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `specialite`
 --
 ALTER TABLE `specialite`
-  ADD CONSTRAINT `specialite_service_FK` FOREIGN KEY (`idService`) REFERENCES `service` (`idService`);
+  ADD CONSTRAINT `specialite_service_FK` FOREIGN KEY (`idService`) REFERENCES `service` (`idService`)  ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  ADD CONSTRAINT `utilisateur_service1_FK` FOREIGN KEY (`idService`) REFERENCES `service` (`idService`),
-  ADD CONSTRAINT `utilisateur_specialite0_FK` FOREIGN KEY (`idSpecialite`) REFERENCES `specialite` (`idSpecialite`),
-  ADD CONSTRAINT `utilisateur_status_FK` FOREIGN KEY (`idStatus`) REFERENCES `status` (`idStatus`);
+  ADD CONSTRAINT `utilisateur_service1_FK` FOREIGN KEY (`idService`) REFERENCES `service` (`idService`)  ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `utilisateur_specialite0_FK` FOREIGN KEY (`idSpecialite`) REFERENCES `specialite` (`idSpecialite`)  ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `utilisateur_status_FK` FOREIGN KEY (`idStatus`) REFERENCES `status` (`idStatus`)  ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

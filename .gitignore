@@ -1,3 +1,4 @@
 .project
 .buildpath
-test.php
+model/test.php
+view/test.html

@@ -9,9 +9,8 @@ include_once("DossierMedical.php");
 include_once("Medecin.php");
 include_once("Rdv.php");
 include_once("Connexion.php");
-
-$m=new Gestionnaire(array("nom"=>"safrrs","prenom"=>"abdoulaye"));
 include_once("GestionSecretaire.php");
+include_once("GestionMedecin.php");
 //feature/f1
 //$m=new Secretaire(array("nom"=>"safrrs","prenom"=>"abdoulaye"),1);
 //$m=new Service(array("nomService"=>"ba","description"=>"wjfjdj"));
@@ -24,19 +23,14 @@ include_once("GestionSecretaire.php");
 //$a=new DossierMedical(array("idDossier"=>1,"nomExamen"=>"safrrs","resultatExamen"=>"pas cool","ordonnance"=>"para",
      //"dateExamen"=>"1998-12-25", "idUtilisateur"=>1,"idPatient"=>2));
      $tab=array(
-<<<<<<< HEAD
-         //'idUtilisateur'=>23,
-=======
-         'idUtilisateur'=>231,
->>>>>>> feature/f1
-         'nom'=>"mass diatta",
+         'nom'=>"samba",
          'prenom'=>'baba',
          'adresse'=>"camara",
          'dateNaissance'=>'1998-12-25',
          'tel'=>'baba',
+         'adress'=>"gediawaye",
          'email'=>"sarr@gmail.com",
-<<<<<<< HEAD
-         'matricule'=>"0010A1"
+         'matricule'=>"M-sl77"
      );
    $t=  array(
          "idRdv"=>2,
@@ -49,34 +43,21 @@ include_once("GestionSecretaire.php");
            'idMedecin'=>2
      );
    //  $r=new Rdv($t);
-     //$p=new Secretaire($tab,2); // echo var_dump($p);
-     $s=new Specialite(array("idSpecialite"=>1,"nomSpecialite"=>"Specialite 12444",
-     "description"=>"service sanitaire","idService"=>1));
-     $a=$m->updateSpecialite($s);
-     echo var_dump($a);
-=======
-         'matricule'=>"0010sA1"
-     );
-   $t=  array(
-         "idRdv"=>2,
-         "motifRdv"=>"safrrs",
-         'heureDebut'=>"12:30",
-           'heureFin'=>"13:00",
-           'dateRdv'=>"1998-12-25",
-           'idSecretaire'=>9,
-           'idPatient'=>1,
-           'idMedecin'=>2
-     );
-   //  $r=new Rdv($t);
-   $m=new GestionSecretaire(array("nom"=>"safrrs","prenom"=>"abdoulaye"));
-     $p=new Secretaire($tab,2);  
-     $m->addSecretaire($p);
+   $m=new GestionMedecin(array());
+     $p=new Medecin($tab,2);  
+     $m->updateMedecin($p);
+     
+
+  //  //  $r=new Rdv($t);
+  //  $m=new GestionSecretaire(array("nom"=>"safrrs","prenom"=>"abdoulaye"));
+  //    $p=new Secretaire($tab,2);  
+  //    $m->addSecretaire($p);
      //echo var_dump($p);
     // $s=new Specialite(array("idSpecialite"=>1,"nomSpecialite"=>"Specialite 12444",
      //"description"=>"service sanitaire","idService"=>1));
      //$a=$m->updateSpecialite($s);
      //echo var_dump($a);
->>>>>>> feature/f1
+
     // echo $p->getIdSpecialite();
    //  $a=$p->mesRdv();
 // $a=  $m->unSecretaire(23);

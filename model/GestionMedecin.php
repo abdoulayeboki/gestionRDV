@@ -1,5 +1,6 @@
 <?php
 include_once("Gestionnaire.php");
+include_once("Connexion.php");
 class GestionMedecin extends Gestionnaire{
     
     //recuperer tous les medecin
@@ -11,10 +12,21 @@ class GestionMedecin extends Gestionnaire{
         
     }
     
+      //recuperer le nombre de médecin medecin
+      public function countMedecin(){
+        $bdd=Connexion::getInstance();
+        $req="select count(matricule) as nbr from utilisateur ";
+        $rep= $bdd->query($req);
+        
+        return $rep->fetch();
+        
+    }
+    
+
     //recuperer un medecin
     public function unMedecin($id){
         $bdd=Connexion::getInstance();
-        $req="select * from utilisateur where idUtilisateur=$id and idStatus=".self::NIVEAU_1;
+        $req="select * from utilisateur where idUtilisateur=$id ";
         $rep=$bdd->query($req);
         return $rep->fetchall();
         
@@ -66,9 +78,19 @@ class GestionMedecin extends Gestionnaire{
     //supprimer un medecin
     public function deleteMedecin($id){
         $bdd=Connexion::getInstance();
-        $req="delete  from utilisateur where idUtilisateur=$id and idStatus=".self::NIVEAU_1;
+        $req="delete  from utilisateur where idUtilisateur=$id ";
         $rep=$bdd->prepare($req);
         $rep->execute();
+        
+    }
+
+    //recuperer tous les service
+
+    public function selectSpecialite(){
+        $bdd=Connexion::getInstance();
+        $req="select * from specialite ";
+        $rep=$bdd->query($req);
+        return $rep->fetchall();
         
     }
     
