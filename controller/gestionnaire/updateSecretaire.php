@@ -1,8 +1,8 @@
 <?php
-define("WEBROOT",dirname(dirname(__FILE__)));
+define("WEBROOT",dirname(dirname(dirname(__FILE__))));
 define("DS",DIRECTORY_SEPARATOR);
-include_once WEBROOT.DS."model/GestionMedecin.php" ;
-include_once WEBROOT.DS."model/Medecin.php" ;
+include_once WEBROOT.DS."model/GestionSecretaire.php" ;
+include_once WEBROOT.DS."model/Secretaire.php" ;
 $idUtilisateur=trim($_GET['id']);
 $matricule=trim($_POST['matricule']);
 $prenom=trim($_POST['prenom']);
@@ -11,8 +11,8 @@ $adresse=trim($_POST['adresse']);
 $tel=trim($_POST['tel']);
 $dateNaissance=trim($_POST['dateNaissance']);
 $email=trim($_POST['email']);
-$idSpecialite=trim($_POST['idSpecialite']);
-$medecins=array(
+$idService=trim($_POST['idService']);
+$secretaires=array(
     'idUtilisateur'=>$idUtilisateur,
     'matricule'=>$matricule,
     'nom'=>$nom,
@@ -22,7 +22,7 @@ $medecins=array(
     'dateNaissance'=>$dateNaissance,
     'email'=>$email,
 );
-$medecin=new Medecin($medecins,$idSpecialite);
-$gestionMedecin=new GestionMedecin(array());
-$gestionMedecin->updateMedecin($medecin);
-header("location:../view/gestionnaire/listMedecin.php");
+$secretaire=new Secretaire($secretaires,$idService);
+$gestionSecretaire=new GestionSecretaire(array());
+$gestionSecretaire->updateSecretaire($secretaire);
+header("location:../../view/gestionnaire/listSecretaire.php");

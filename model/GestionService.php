@@ -33,14 +33,6 @@ class GestionService extends Gestionnaire{
     }
     
     
-    //recuperer tous les service
-    public function selectService(){
-        $bdd=Connexion::getInstance();
-        $req="select * from service ";
-        $rep=$bdd->query($req);
-        return $rep->fetchall();
-        
-    }
     
     //recuperer un service
     public function unService($id){

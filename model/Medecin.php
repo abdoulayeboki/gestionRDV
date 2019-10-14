@@ -1,5 +1,6 @@
 <?php
 include_once("Utilisateur.php");
+include_once("Connexion.php");
 class Medecin extends Utilisateur{
     private $idSpecialite;
     public function __construct( $donnes, $id) {
@@ -27,7 +28,8 @@ class Medecin extends Utilisateur{
 //recuperer tous les dossiers
     public function selectDossierMedical(){
         $bdd=Connexion::getInstance();
-        $req="select * from dossierMedical";
+        $req="select * from dossierMedical d,patient p 
+        where d.idPatient=p.idPatient and idUtilisateur=".$this->idUtilisateur;
         $rep=$bdd->query($req);
         return $rep->fetchall();
         
@@ -38,7 +40,7 @@ class Medecin extends Utilisateur{
     $bdd=Connexion::getInstance();
     $req="select * from dossierMedical where idDossier=$id";
     $rep=$bdd->query($req);
-    return $rep->fetch();
+    return $rep->fetchall();
     
 }
 
@@ -70,7 +72,16 @@ public function updateDossierMedical(DossierMedical $dossier){
  //recuperer mes Rdv
  public function mesRdv(){
     $bdd=Connexion::getInstance();
-    $req="select * from rdv where idMedecin=".$this->idUtilisateur;
+    $req="select  * from rdv r,utilisateur u ,patient p
+    where r.idMedecin=".$this->idUtilisateur." and u.idUtilisateur=r.idMedecin and r.idPatient=p.idPatient";
+    $rep=$bdd->query($req);
+    return $rep->fetchAll();
+    
+}
+ //recuperer tous les patients
+ public function selectPatient(){
+    $bdd=Connexion::getInstance();
+    $req="select * from patient";
     $rep=$bdd->query($req);
     return $rep->fetchall();
     

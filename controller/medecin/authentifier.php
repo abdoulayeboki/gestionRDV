@@ -1,6 +1,8 @@
 <?php
 session_start();
-include "Connexion.php";
+define("WEBROOT",dirname(dirname(__FILE__)));
+define("DS",DIRECTORY_SEPARATOR);
+include WEBROOT.DS."model/Connexion.php";
 $bdd=Connexion::getInstance();
 $matricule=$_POST['matricule'];
 $code=$_POST['code'];
@@ -15,7 +17,7 @@ if($users !=null){
 foreach($users as $user)  {
     if($user['niveauStatus']==3){
     $_SESSION['id']=$user['IdUtilisateur'];
-        header("location:../view/gestionnaire.php");
+        header("location:../view/gestionnaire");
     }elseif($user['niveauStatus']==2){
         header("location:../view/secretaire.php");
     }elseif($user['niveauStatus']==1){

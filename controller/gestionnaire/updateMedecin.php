@@ -1,6 +1,9 @@
 <?php
-include_once "../model/GestionMedecin.php" ;
-include_once "../model/Medecin.php" ;
+define("WEBROOT",dirname(dirname(dirname(__FILE__))));
+define("DS",DIRECTORY_SEPARATOR);
+include_once WEBROOT.DS."model/GestionMedecin.php" ;
+include_once WEBROOT.DS."model/Medecin.php" ;
+$idUtilisateur=trim($_GET['id']);
 $matricule=trim($_POST['matricule']);
 $prenom=trim($_POST['prenom']);
 $nom=trim($_POST['nom']);
@@ -10,6 +13,7 @@ $dateNaissance=trim($_POST['dateNaissance']);
 $email=trim($_POST['email']);
 $idSpecialite=trim($_POST['idSpecialite']);
 $medecins=array(
+    'idUtilisateur'=>$idUtilisateur,
     'matricule'=>$matricule,
     'nom'=>$nom,
     'prenom'=>$prenom,
@@ -19,8 +23,6 @@ $medecins=array(
     'email'=>$email,
 );
 $medecin=new Medecin($medecins,$idSpecialite);
-//   var_dump($medecin);
-//   die();
 $gestionMedecin=new GestionMedecin(array());
-$gestionMedecin->addMedecin($medecin);
-header("location:../view/gestionnaire/addMedecin.php");
+$gestionMedecin->updateMedecin($medecin);
+header("location:../../view/gestionnaire/listMedecin.php");

@@ -36,14 +36,6 @@ class GestionSpecialite extends Gestionnaire{
     }
     
     
-    //recuperer tous les Specialite
-    public function selectSpecialite(){
-        $bdd=Connexion::getInstance();
-        $req="select * from specialite ";
-        $rep=$bdd->query($req);
-        return $rep->fetchall();
-        
-    }
     
     //recuperer un Specialite
     public function unSpecialite($id){

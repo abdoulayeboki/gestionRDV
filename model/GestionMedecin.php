@@ -15,7 +15,7 @@ class GestionMedecin extends Gestionnaire{
       //recuperer le nombre de médecin medecin
       public function countMedecin(){
         $bdd=Connexion::getInstance();
-        $req="select count(matricule) as nbr from utilisateur ";
+        $req="select count(matricule) as nbr from utilisateur where idStatus=".self::NIVEAU_1;
         $rep= $bdd->query($req);
         
         return $rep->fetch();
@@ -84,14 +84,6 @@ class GestionMedecin extends Gestionnaire{
         
     }
 
-    //recuperer tous les service
 
-    public function selectSpecialite(){
-        $bdd=Connexion::getInstance();
-        $req="select * from specialite ";
-        $rep=$bdd->query($req);
-        return $rep->fetchall();
-        
-    }
     
 }

@@ -1,5 +1,6 @@
 <?php
 include_once("Gestionnaire.php");
+include_once("Connexion.php");
 class GestionSecretaire extends Gestionnaire{
     
     //supprimer un secretaire

@@ -23,6 +23,7 @@ include_once("GestionMedecin.php");
 //$a=new DossierMedical(array("idDossier"=>1,"nomExamen"=>"safrrs","resultatExamen"=>"pas cool","ordonnance"=>"para",
      //"dateExamen"=>"1998-12-25", "idUtilisateur"=>1,"idPatient"=>2));
      $tab=array(
+        'idUtilisateur'=>44,
          'nom'=>"samba",
          'prenom'=>'baba',
          'adresse'=>"camara",
@@ -44,8 +45,10 @@ include_once("GestionMedecin.php");
      );
    //  $r=new Rdv($t);
    $m=new GestionMedecin(array());
-     $p=new Medecin($tab,2);  
-     $m->updateMedecin($p);
+     $p=new Medecin($tab,9);
+    // var_dump($p);  die();
+     $a=$p->selectDossierMedical(); var_dump($a);  
+   //  $m->updateMedecin($p);
      
 
   //  //  $r=new Rdv($t);
