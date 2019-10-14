@@ -1,9 +1,6 @@
 <?php
 session_start();
- include_once "../../model/GestionMedecin.php" ;
-  $gestionMedecin=new GestionMedecin(array(),1);
-  $medecins=$gestionMedecin->selectMedecin();
-  
+ 
 ?>
 <!DOCTYPE html>  
 <html lang="fr">
@@ -12,50 +9,36 @@ session_start();
         <meta charset="utf-8"/>
         <!-- <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
         <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script>  -->
+        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script> 
+         -->
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">       
+        <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">
+
+       
     </head>
 
 
     <body>
-    <div class="container-fluid"> 
-    <?php include_once 'menu.php';?>
-    <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8 ">
+    <div class="container-fluid">  
+    <?php include_once("menu.php"); ?>
+    <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
       <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
-      <table class="table table-condensed table-responsive table-hover table-striped ">
-        <caption>Liste des médecins disponible</caption>
-       <thead class="thead">
-         <tr>
-           <th>Nom</th>
-           <th>Prenom</th>
-           <th>Email</th>
-           <th>Adresse</th>
-           <th>Date</th>
-           <th>Tel</th>
-           <th>Matricule</th>
-           <th>Action</th>
-         </tr>
-       </thead>
-       <tbody>
-         <?php foreach($medecins as $m) { ?>
-          <tr>
-            <td><?php echo $m["nom"] ?></td>
-            <td><?php echo $m["prenom"] ?></td>
-            <td><?php echo $m["email"] ?></td>
-            <td><?php echo $m["adresse"] ?></td>
-            <td><?php echo $m["dateNaissance"] ?></td>
-            <td><?php echo $m["tel"] ?></td>
-            <td><?php echo $m["matricule"] ?></td>
-            <td><a href="updateMedecin.php?id=<?php echo $m['idUtilisateur']?>"> <i class="fas fa-pencil-alt"></i></a>
-                  <a href="../../controller/deleteMedecin.php?id=<?php echo $m['idUtilisateur'] ?>"><i class="fas fa-trash"></i></a></td>
-          </tr>
-         <?php } ?>
-       </tbody>
-      </table>
+      <form method="post" action="../../controller/gestionnaire/addService.php" class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+ 
+    <div class="form-group ">
+      <label for="nomService">Nom du service</label>
+      <input type="text" class="form-control" id="nomService" required name="nomService" placeholder="service pédiatre">
     </div>
+    <div class="form-group ">
+      <label for="description">description</label>
+      <textarea class="form-control" id="description"  name="description" required placeholder="description" ></textarea>
+    </div>
+
+  <button type="submit"  class="btn btn-primary row btn-block">Enregistrer</button>
+    </form>
+   </div>
   </div>
   <footer class="row"><p class="offset-md-5 offset-sm-5 offset-xs-8">copy right 2019<br>Abdoulaye Sarr <br>Aly lY</p> <footer>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

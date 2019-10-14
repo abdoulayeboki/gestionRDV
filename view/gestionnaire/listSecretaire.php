@@ -1,116 +1,36 @@
 <?php
 session_start();
- include_once "../model/GestionMedecin.php" ;
- 
+include_once "../../model/GestionSecretaire.php" ;
+$gestionSecretaire=new GestionSecretaire(array(),1);
+$secretaires=$gestionSecretaire->selectSecretaire();
 
-  $gestionSecretaire=new GestionMedecin(array(),1);
-  $secretaires=$gestionMedecin->selectMedecin();
-  $unMedecin=$gestionMedecin->unMedecin(2);
+
+
 ?>
 <!DOCTYPE html>  
 <html lang="fr">
     <head>
         <title> gestionnaire    </title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
+        <!-- <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
         <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script> 
-        <link rel="stylesheet" href="../css/style.css"/>
-        <script> type="text/javascript" src="../js/scripte.js"</script> 
+        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script>  -->
+        <link rel="stylesheet" href="../../librairie/css/style.css"/>
+        <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="../librairie/fontawesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">
 
        
     </head>
 
 
     <body>
-    <div class="container-fluid">
-    <!-- <menu>
-      <a href="pre_rendez.php"> <button class="btn btn-danger" name="rdv" >Demander un rendez-Vous</button><a/>
-      <a href="#"><button class="btn btn-danger" name="rdv" >Voir mon profile</button><a/>
-      <a href="#"><button class="btn btn-danger" name="rdv" >RV en Attente</button><a/>
-      <a href="../index.php"><button class="btn btn-danger" name="deconnexion" >Deconnexion</button><a/>
-    </menu> -->
-   
-      
-     
-    <nav class="navbar navbar-light bg-light navbar-fixed row">
-    <div class="col-lg-2 col-md-4 col-sm-6 ">SunuClinic</div>
-      <div class="">
-    <div class="">
-    <div class="btn-group">
-  <button type="button"  class="btn btn-light   btn-block dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Medecin</button> 
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Add Medecin</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">List  Medecin</a>
-  </div>
-</div>
-
-<div class="btn-group">
-  <button type="button" class="btn btn-light  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" 
-  aria-haspopup="true" aria-expanded="false">GestionSecretaire</button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Add Secretaire</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">List  Secretaire</a>
-  </div>
-</div>
-
-<div class="btn-group">
-  <button type="button" class="btn btn-light  dropdown-toggle dropdown-toggle-split"
-   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Specialite</button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Add Specialite</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">List  Specialite</a>
-  </div>
-</div>
-
-<div class="btn-group">
-  <button type="button" class="btn btn-light  dropdown-toggle dropdown-toggle-split" 
-  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Service</button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Add Service</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">List  Service</a>
-  </div>
-</div>
-<a href="#"><button class="btn btn-danger btn-md"  >Deconexion</button></a>
-    </div>
-</nav> 
-
-  <div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 menu-lateral">
-      <h1>Espace Gestionnaire</h1>
-    <img src="../image/hopital.jpeg" class="img-fluid img-thumbnail img1" alt="en charge"/>
-    <h1>Profil</h1>
-    <img src="../image/m1.jpg" class="img-fluid img-thumbnail img2" alt="en charge"/>
-    <table class="table">
-    <tr>
-      <td>Nom</td>
-      <td><?php foreach($unMedecin as $m){
-        echo $m['nom']; 
-      } ?></td>
-    </tr>  
-    <tr>
-      <td>Prenom</td>
-      <td><?php foreach($unMedecin as $m){
-        echo $m['prenom']; 
-      } ?></td>
-    </tr>  
-    <tr>
-      <td>Adresse</td>
-      <td><?php foreach($unMedecin as $m){
-        echo $m['adresse']; 
-      } ?></td>
-    </tr>    
-    </table>
-    </div>
+    <div class="container-fluid"> 
+    <?php include_once 'menu.php';?>
     <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8 ">
       <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
       <table class="table table-condensed table-responsive table-hover table-striped ">
+        <caption>Liste des secretaire disponibles</caption>
        <thead class="thead">
          <tr>
            <th>Nom</th>
@@ -124,17 +44,17 @@ session_start();
          </tr>
        </thead>
        <tbody>
-         <?php foreach($medecins as $m) { ?>
+         <?php foreach($secretaires as $s) { ?>
           <tr>
-            <td><?php echo $m["nom"] ?></td>
-            <td><?php echo $m["prenom"] ?></td>
-            <td><?php echo $m["email"] ?></td>
-            <td><?php echo $m["adresse"] ?></td>
-            <td><?php echo $m["dateNaissance"] ?></td>
-            <td><?php echo $m["tel"] ?></td>
-            <td><?php echo $m["matricule"] ?></td>
-            <td><a href="#"> <i class="fas fa-pencil-alt"></i></a>
-                  <a href="#"><i class="fas fa-trash"></i></a></td>
+            <td><?php echo $s["nom"] ?></td>
+            <td><?php echo $s["prenom"] ?></td>
+            <td><?php echo $s["email"] ?></td>
+            <td><?php echo $s["adresse"] ?></td>
+            <td><?php echo $s["dateNaissance"] ?></td>
+            <td><?php echo $s["tel"] ?></td>
+            <td><?php echo $s["matricule"] ?></td>
+            <td><a href="updateSecretaire.php?id=<?php echo $s['idUtilisateur']?>"> <i class="fas fa-pencil-alt"></i></a>
+                  <a href="../../controller/deleteSecretaire.php?id=<?php echo $s['idUtilisateur'] ?>"><i class="fas fa-trash"></i></a></td>
           </tr>
          <?php } ?>
        </tbody>

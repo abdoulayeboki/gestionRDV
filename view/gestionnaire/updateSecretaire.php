@@ -1,21 +1,15 @@
 <?php
 session_start();
-//  include_once ("../../model/GestionMedecin.php" );
-//  include_once ("../../model/Medecin.php") ;
  define("WEBROOT",dirname(dirname(dirname(__FILE__))));
  define("DS",DIRECTORY_SEPARATOR);
- include_once (WEBROOT.DS."model/GestionMedecin.php" );
- include_once (WEBROOT.DS."model/Medecin.php" );
+ include_once (WEBROOT.DS."model/GestionSecretaire.php" );
+ include_once (WEBROOT.DS."model/Secretaire.php" );
 
-$idUtilisateur=isset($_GET['id'])?$_GET['id']:null;
-// echo $idUtilisateur;
-// die();
+ $idUtilisateur=isset($_GET['id'])?$_GET['id']:null;
 $tab=array();
-$gestionMedecin=new GestionMedecin($tab,1);
-$unMedecin=$gestionMedecin->unMedecin(2);
-$medecin=$gestionMedecin->unMedecin($idUtilisateur);
-//var_dump($medecin);
-foreach ($medecin as $m){
+$gestionSecretaire=new GestionSecretaire($tab,1);
+$secretaire=$gestionSecretaire->unSecretaire($idUtilisateur);
+foreach ($secretaire as $m){
     $matricule=$m['matricule'];
     $prenom=$m['prenom'];
     $nom=$m['nom'];
@@ -23,7 +17,7 @@ foreach ($medecin as $m){
     $tel=$m['tel'];
     $dateNaissance=$m['dateNaissance'];
     $email=$m['email'];
-    $idSpecialite=$m['idSpecialite'];
+    $idService=$m['idService'];
 }
 
 
@@ -34,9 +28,10 @@ foreach ($medecin as $m){
     <head>
         <title> gestionnaire    </title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
+        <!-- <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
         <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script> 
+        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script>  -->
+
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,10 +43,10 @@ foreach ($medecin as $m){
 
     <body>
     <div class="container-fluid">  
-     <?php  include_once ("menu.php"); ?>
+     <?php include_once("menu.php"); ?>
     <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
       <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
-      <form method="post" action="../../controller/gestionnaire/updateMedecin.php?id=<?php echo  $idUtilisateur; ?>" class=" offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+      <form method="post" action="../../controller/gestionnaire/updateSecretaire.php?id=<?php echo  $idUtilisateur; ?>" class=" offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
       <div class="form-group ">
       <label for="matricule">Matricule</label>
       <input type="text" class="form-control" id="matricule"  readonly="true" name="matricule"
@@ -88,13 +83,13 @@ foreach ($medecin as $m){
       <input type="text" class="form-control"  name="dateNaissance" value="<?php echo $dateNaissance?>" required id="dateNaissance">
     </div>
     <div class="form-group col-md-4">
-      <label for="specialite" >Specialite</label>
-      <select id="specialite" name="idSpecialite" class="form-control">
-        <?php $specialite= $gestionMedecin->selectSpecialite();
-          foreach($specialite as $s){?>
-            <option value="<?php echo $s['idSpecialite']  ?>" <?php if($idSpecialite == $s['idSpecialite']){
+      <label for="specialite" >Services</label>
+      <select id="specialite" name="idService" class="form-control">
+        <?php $service= $gestionSecretaire->selectService();
+          foreach($service as $s){?>
+            <option value="<?php echo $s['idService']  ?>" <?php if($idService == $s['idService']){
                 echo selected;
-            }?> > <?php echo $s['nomSpecialite']; ?> </option>
+            }?> > <?php echo $s['nomService']; ?> </option>
          <?php }
         ?>
       </select>

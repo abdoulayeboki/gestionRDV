@@ -1,8 +1,9 @@
 <?php
 session_start();
- include_once "../../model/GestionMedecin.php" ;
-  $gestionMedecin=new GestionMedecin(array(),1);
-  $medecins=$gestionMedecin->selectMedecin();
+ include_once "../../model/GestionService.php" ;
+  $gestionService=new GestionService(array(),1);
+  $services=$gestionService->selectService();
+  
   
 ?>
 <!DOCTYPE html>  
@@ -13,10 +14,13 @@ session_start();
         <!-- <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
         <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
         <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script>  -->
+
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">       
+        <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">
+
+       
     </head>
 
 
@@ -26,31 +30,23 @@ session_start();
     <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8 ">
       <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
       <table class="table table-condensed table-responsive table-hover table-striped ">
-        <caption>Liste des médecins disponible</caption>
+        <caption>Liste des services disponibles </caption>
        <thead class="thead">
          <tr>
-           <th>Nom</th>
-           <th>Prenom</th>
-           <th>Email</th>
-           <th>Adresse</th>
-           <th>Date</th>
-           <th>Tel</th>
-           <th>Matricule</th>
+           <th>Nom du service</th>
+           <th>description</th>
            <th>Action</th>
          </tr>
        </thead>
        <tbody>
-         <?php foreach($medecins as $m) { ?>
+         <?php foreach($services as $s) { ?>
           <tr>
-            <td><?php echo $m["nom"] ?></td>
-            <td><?php echo $m["prenom"] ?></td>
-            <td><?php echo $m["email"] ?></td>
-            <td><?php echo $m["adresse"] ?></td>
-            <td><?php echo $m["dateNaissance"] ?></td>
-            <td><?php echo $m["tel"] ?></td>
-            <td><?php echo $m["matricule"] ?></td>
-            <td><a href="updateMedecin.php?id=<?php echo $m['idUtilisateur']?>"> <i class="fas fa-pencil-alt"></i></a>
-                  <a href="../../controller/deleteMedecin.php?id=<?php echo $m['idUtilisateur'] ?>"><i class="fas fa-trash"></i></a></td>
+            <td><?php echo $s["nomService"] ?></td>
+            <td><?php echo $s["description"] ?></td>
+            <td><a href="updateService.php?id=<?php echo $s['idService']?>">
+             <i class="fas fa-pencil-alt"></i></a>
+                  <a href="../../controller/deleteService.php?id=<?php echo $s['idService'] ?>">
+                  <i class="fas fa-trash"></i></a></td>
           </tr>
          <?php } ?>
        </tbody>
@@ -63,6 +59,5 @@ session_start();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
-</div>
     </body>
 </html>

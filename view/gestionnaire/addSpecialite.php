@@ -1,21 +1,14 @@
 <?php
 session_start();
- include_once "../../model/GestionMedecin.php" ;
- 
- $tab=array();
-  $gestionMedecin=new GestionMedecin($tab,1);
-  $unMedecin=$gestionMedecin->unMedecin(2);
+include_once "../../model/GestionService.php" ;
 ?>
 <!DOCTYPE html>  
 <html lang="fr">
     <head>
         <title> gestionnaire    </title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
-        <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script> 
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
-        <script> type="text/javascript" src="../librairie/js/scripte.js"</script> 
+        <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">
 
@@ -24,13 +17,38 @@ session_start();
 
 
     <body>
-    <div class="container-fluid">
-   
-   <?php include_once 'menu.php';?>
-    <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8 ">
+    <div class="container-fluid">  
+    <?php include_once("menu.php"); ?>
+    <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
       <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
-
+      <form method="post" action="../../controller/gestionnaire/addSpecialite.php" class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+ 
+    <div class="form-group ">
+      <label for="nomSpecialite">Nom de la Spécialité</label>
+      <input type="text" class="form-control" id="nomSpecialite" required name="nomSpecialite" 
+      placeholder="dentist">
     </div>
+    <div class="form-group ">
+      <label for="description">description</label>
+      <textarea class="form-control" id="description"  name="description" required placeholder="description" >
+      </textarea>
+    </div>
+    <div class="form-group">
+    <label for="nomService">Service</label>
+    <select id="idService" name="idService" class="form-control">
+        <?php 
+          $gestionService=new GestionService(array());
+          $service= $gestionService->selectService();
+          foreach($service as $s){?>
+            <option value="<?php echo $s['idService']; ?>" ><?php echo $s['nomService']; ?> </option>
+         <?php }
+        ?>
+      </select>
+    </div>
+
+  <button type="submit"  class="btn btn-primary row btn-block">Enregistrer</button>
+    </form>
+   </div>
   </div>
   <footer class="row"><p class="offset-md-5 offset-sm-5 offset-xs-8">copy right 2019<br>Abdoulaye Sarr <br>Aly lY</p> <footer>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
