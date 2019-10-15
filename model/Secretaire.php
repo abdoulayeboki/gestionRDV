@@ -1,5 +1,6 @@
 <?php
 include_once("Utilisateur.php");
+include_once("Connexion.php");
 class Secretaire extends Utilisateur{
     private $idService;
     public function __construct($donnes,$id){
@@ -11,7 +12,8 @@ class Secretaire extends Utilisateur{
     //ajout d'un patient
     public function addPatient(Patient $patient){
         $bdd=Connexion::getInstance();
-        $req="insert into patient (nom,prenom,adresse,dateNaissance,tel,matricule) 
+        $req="insert into patient (nomPatient,prenomPatient,adressePatient,dateNaissancePatient,telPatient
+        ,matriculePatient) 
         values (:nom,:prenom,:adresse,:dateNaissance,:tel,:matricule)";
         $rep=$bdd->prepare($req);
         $rep->execute(array(
@@ -53,8 +55,8 @@ class Secretaire extends Utilisateur{
     //editer patient
     public function updatePatient(Patient $patient){
         $bdd=Connexion::getInstance();
-        $req="update  patient set nom=:nom,prenom=:prenom,adresse=:adresse,
-        dateNaissance=:dateNaissance,tel=:tel,matricule=:matricule 
+        $req="update  patient set nomPatient=:nom,prenomPatient=:prenom,adressePatient=:adresse,
+        dateNaissancePatient=:dateNaissance,telPatient=:tel,matriculePatient=:matricule 
         where idPatient=".$patient->getIdPatient();
         $rep=$bdd->prepare($req);
         $rep->execute(array(
@@ -112,7 +114,8 @@ class Secretaire extends Utilisateur{
  //recuperer tous les Rdv
  public function selectRdv(){
     $bdd=Connexion::getInstance();
-    $req="select * from rdv";
+    $req="select  * from rdv r ,patient p
+    where  r.idPatient=p.idPatient";
     $rep=$bdd->query($req);
     return $rep->fetchall();
     
@@ -123,6 +126,25 @@ class Secretaire extends Utilisateur{
     $req="select * from rdv where idRdv=$id ";
     $rep=$bdd->query($req);
     return $rep->fetchall();
+    
+}
+
+   //recuperer le nombre de patient
+   public function countUser(){
+    $bdd=Connexion::getInstance();
+    $req="select count(matriculePatient) as nbr from patient ";
+    $rep= $bdd->query($req);
+    
+    return $rep->fetch();
+    
+}
+ //recuperer mes Rdv
+ public function mesRdv(){
+    $bdd=Connexion::getInstance();
+    $req="select  * from rdv r,utilisateur u ,patient p
+    where r.idSecretaire=".$this->idUtilisateur." and u.idUtilisateur=r.idSecretaire and r.idPatient=p.idPatient";
+    $rep=$bdd->query($req);
+    return $rep->fetchAll();
     
 }
     /**

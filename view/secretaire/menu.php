@@ -6,18 +6,19 @@
 <button type="button"  class="btn btn-light   btn-md "><a href="index.php">Accueil</a></button>
 <div class="btn-group">
 <button type="button"  class="btn btn-light   btn-block dropdown-toggle dropdown-toggle-split" 
-data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion dossier</button>
+data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Patient</button>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="addDossier.php">Add dossier</a>
-<a class="dropdown-item" href="listDossier.php">List  dossier</a>
-</div>
+<a class="dropdown-item" href="addPatient.php">Add Patient</a>
+<a class="dropdown-item" href="listPatient.php">List  Patient</a>
 </div>
 
 <div class="btn-group">
 <button type="button" class="btn btn-light  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
     aria-haspopup="true" aria-expanded="false">Gestion rendez-vous</button>
     <div class="dropdown-menu">
-    <a class="dropdown-item" href="listRdv.php">List  rendez-vous</a>
+    <a class="dropdown-item" href="allRdv.php">Tous les rendez-vous</a>
+    <a class="dropdown-item" href="listRdv.php">Mes  rendez-vous</a>
+    <a class="dropdown-item" href="addRdv.php">Add rendez-vous</a>
     </div>
     </div>
     

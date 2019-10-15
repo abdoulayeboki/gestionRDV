@@ -8,7 +8,6 @@
 <button type="button"  class="btn btn-light   btn-block dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Medecin</button>
 <div class="dropdown-menu">
 <a class="dropdown-item" href="addMedecin.php">Add Medecin</a>
-<div class="dropdown-divider"></div>
 <a class="dropdown-item" href="listMedecin.php">List  Medecin</a>
 </div>
 </div>
@@ -18,7 +17,6 @@
     aria-haspopup="true" aria-expanded="false">Gestion Secretaire</button>
     <div class="dropdown-menu">
     <a class="dropdown-item" href="addSecretaire.php">Add Secretaire</a>
-    <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="listSecretaire.php">List  Secretaire</a>
     </div>
     </div>
@@ -28,7 +26,6 @@
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Specialite</button>
         <div class="dropdown-menu">
         <a class="dropdown-item" href="addSpecialite.php">Add Specialite</a>
-        <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="listSpecialite.php">List  Specialite</a>
         </div>
         </div>
@@ -38,7 +35,6 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Service</button>
             <div class="dropdown-menu">
             <a class="dropdown-item" href="addService.php">Add Service</a>
-            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="listService.php">List  Service</a>
             </div>
             </div>
