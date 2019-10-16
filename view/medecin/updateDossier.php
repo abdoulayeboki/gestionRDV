@@ -4,17 +4,10 @@ include_once "../../model/Medecin.php" ;
 define("WEBROOT",dirname(dirname(dirname(__FILE__))));
 define("DS",DIRECTORY_SEPARATOR);
 include_once (WEBROOT.DS."model/Medecin.php" );
+//$idSession = $_SESSION['id'];
 $idDossier=isset($_GET['id'])?$_GET['id']:null;
 $tab=array(
-    'idUtilisateur'=>44,
-     'nom'=>"samba",
-     'prenom'=>'baba',
-     'adresse'=>"camara",
-     'dateNaissance'=>'1998-12-25',
-     'tel'=>'baba',
-     'adress'=>"gediawaye",
-     'email'=>"sarr@gmail.com",
-     'matricule'=>"M-sl77"
+    'idUtilisateur'=> $_SESSION['id']
  );
   $medecin=new Medecin($tab,9);
   $dossier=$medecin->unDossierMedical($idDossier);

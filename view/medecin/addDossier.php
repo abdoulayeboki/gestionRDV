@@ -1,16 +1,9 @@
 <?php
 session_start();
 include_once "../../model/Medecin.php" ;
+$idSession=$_SESSION['id'];
 $tab=array(
-    'idUtilisateur'=>44,
-     'nom'=>"samba",
-     'prenom'=>'baba',
-     'adresse'=>"camara",
-     'dateNaissance'=>'1998-12-25',
-     'tel'=>'baba',
-     'adress'=>"gediawaye",
-     'email'=>"sarr@gmail.com",
-     'matricule'=>"M-sl77"
+    'idUtilisateur'=>$idSession,
  );
   $medecin=new Medecin($tab,9);
 ?>
@@ -43,8 +36,9 @@ $tab=array(
     </div>
 
     <div class="form-group ">
-      <label for="dateExamen">Date Examen</label>
-      <input type="date" class="form-control" id="dateExamen"  name="dateExamen" required />
+      <input type="dateTime" class="form-control" id="dateExamen" 
+      value="<?php  echo date("Y-m-d H:i:s");  ?>"  
+      name="dateExamen" required hidden  />
     </div>
     <div class="form-group ">
       <label for="ordonnance">Ordonnance</label>
@@ -63,7 +57,7 @@ $tab=array(
          <?php 
             $patient=$medecin->selectPatient();
             foreach ($patient as $p) { ?>
-                <option value="<?php echo $p['idPatient'] ;?>"><?php echo $p['nomPatient'] ;?></option>
+                <option value="<?php echo $p['idPatient'] ;?>"><?php echo $p['matriculePatient'] ;?></option>
           <?php  }
          ?>  
      </select>

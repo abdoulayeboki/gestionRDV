@@ -1,10 +1,6 @@
 <?php
 session_start();
- include_once "../../model/GestionMedecin.php" ;
- 
- $tab=array();
-  $gestionMedecin=new GestionMedecin($tab,1);
-  $unMedecin=$gestionMedecin->unMedecin(2);
+ include_once "../../model/GestionSecretaire.php" ;
 ?>
 <!DOCTYPE html>  
 <html lang="fr">

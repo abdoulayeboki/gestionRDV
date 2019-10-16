@@ -2,24 +2,26 @@
 define("WEBROOT",dirname(dirname(dirname(__FILE__))));
 define("DS",DIRECTORY_SEPARATOR);
 include_once WEBROOT.DS."model/Secretaire.php" ;
-include_once WEBROOT.DS."model/Patient.php" ;
-$idPatient=trim($_GET['id']);
-$matricule=trim($_POST['matricule']);
-$prenom=trim($_POST['prenom']);
-$nom=trim($_POST['nom']);
-$adresse=trim($_POST['adresse']);
-$tel=trim($_POST['tel']);
-$dateNaissance=trim($_POST['dateNaissance']);
-$patients=array(
+include_once WEBROOT.DS."model/Rdv.php" ;
+$idRdv=trim($_GET['id']);
+$motifRdv=trim($_POST['motifRdv']);
+$dateRdv=trim($_POST['dateRdv']);
+$heureDebut=trim($_POST['heureDebut']);
+$heureFin=trim($_POST['heureFin']);
+$idPatient=trim($_POST['idPatient']);
+$idMedecin=trim($_POST['idMedecin']);
+$idSecretaire=trim($_POST['idSecretaire']);
+$rdvs=array(
+    'idRdv'=>$idRdv,
+    'motifRdv'=>$motifRdv,
+    'dateRdv'=>$dateRdv,
+    'heureDebut'=>$heureDebut,
+    'heureFin'=>$heureFin,
     'idPatient'=>$idPatient,
-    'matricule'=>$matricule,
-    'nom'=>$nom,
-    'prenom'=>$prenom,
-    'adresse'=>$adresse,
-    'tel'=>$tel,
-    'dateNaissance'=>$dateNaissance,
+    'idMedecin'=>$idMedecin,
+    'idSecretaire'=>$idSecretaire
 );
-$patient=new Patient($patients);
+$rdv=new Rdv($rdvs);
 $secretaire=new Secretaire(array(),1);
-$secretaire->updatePatient($patient);
-header("location:../../view/secretaire/listPatient.php");
+$secretaire->updateRdv($rdv);
+header("location:../../view/secretaire/listRdv.php");

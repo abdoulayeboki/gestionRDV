@@ -13,7 +13,7 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-     <form method="post" action="../controller/authentifier.php" class="offset-md-4 col-md-4 offset-md-4">
+     <form method="post" action="authentifier.php" class="offset-md-4 col-md-4 offset-md-4">
          <div class="form-group">
          <label>Matricule </label>  
          <input type="text" name="matricule" placeholder="matricule" class="form-control"/>  

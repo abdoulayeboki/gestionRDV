@@ -11,19 +11,11 @@ session_start();
     <head>
         <title> gestionnaire    </title>
         <meta charset="utf-8"/>
-        <!-- <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
-        <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script>  -->
-
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">
-
-       
     </head>
-
-
     <body>
     <div class="container-fluid"> 
     <?php include_once 'menu.php';?>
@@ -33,9 +25,9 @@ session_start();
         <caption>Liste des services disponibles </caption>
        <thead class="thead">
          <tr>
-           <th>Nom du service</th>
-           <th>description</th>
-           <th>Action</th>
+           <th scope="col-1">Nom du service</th>
+           <th scope="col-2">description</th>
+           <th scope="col-3">Action</th>
          </tr>
        </thead>
        <tbody>
@@ -44,9 +36,9 @@ session_start();
             <td><?php echo $s["nomService"] ?></td>
             <td><?php echo $s["description"] ?></td>
             <td><a href="updateService.php?id=<?php echo $s['idService']?>">
-             <i class="fas fa-pencil-alt"></i></a>
+             <em class="fas fa-pencil-alt"></em></a>
                   <a href="../../controller/deleteService.php?id=<?php echo $s['idService'] ?>">
-                  <i class="fas fa-trash"></i></a></td>
+                  <em class="fas fa-trash"></em></a></td>
           </tr>
          <?php } ?>
        </tbody>

@@ -1,89 +1,122 @@
 <?php
 session_start();
- define("WEBROOT",dirname(dirname(dirname(__FILE__))));
- define("DS",DIRECTORY_SEPARATOR);
- include_once (WEBROOT.DS."model/Secretaire.php" );
- include_once (WEBROOT.DS."model/Patient.php" );
-
-$idPatient=isset($_GET['id'])?$_GET['id']:null;
-// echo $idPatient;
-// die();
-$tab=array();
-$secretaire=new Secretaire($tab,1);
-$patient=$secretaire->unPatient($idPatient);
-//var_dump($Patient);
-foreach ($patient as $m){
-    $matricule=$m['matriculePatient'];
-    $prenom=$m['prenomPatient'];
-    $nom=$m['nomPatient'];
-    $adresse=$m['adressePatient'];
-    $tel=$m['telPatient'];
-    $dateNaissance=$m['dateNaissancePatient'];
+ include_once "../../model/Secretaire.php" ;
+ $idRdv=$_GET['id'];
+ $tab=array('idUtilisateur'=>$_SESSION['id']);
+$secretaire=new Secretaire($tab,45);
+$rdvs=$secretaire->unRdv($idRdv);
+foreach($rdvs as $r){
+  $motifRdv=$r['motifRdv'];
+  $dateRdv=$r['dateRdv'];
+  $heureDebut=$r['heureDebut'];
+  $heureFin=$r['heureFin'];
+  $idPatient=$r['idPatient'];
+  $idMedecin=$r['idMedecin'];
+  $idSecretaire=$r['idSecretaire'];
 }
-
-
-
 ?>
 <!DOCTYPE html>  
 <html lang="fr">
     <head>
-        <title> update patient   </title>
+        <title> secretaire   </title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">
     </head>
+
+
     <body>
     <div class="container-fluid">  
-     <?php  include_once ("menu.php"); ?>
+    <?php include_once("menu.php"); ?>
     <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
-      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
-      <form method="post" action="../../controller/secretaire/updatePatient.php?id=<?php echo  $idPatient; ?>" class=" offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
-      <div class="form-group ">
-      <label for="matricule">Matricule</label>
-      <input type="text" class="form-control" id="matricule"  readonly="true" name="matricule"
-      value="<?php  echo $matricule; ?>"/>
-    </div>
+      <marquee behavior="scroll" scrollamount="5">Bonjour, 
+        l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
+      <form method="post" action="../../controller/secretaire/updateRdv.php?id=<?php echo $idRdv; ?>"
+       class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="nom">Nom</label>
-      <input type="text" class="form-control" id="nom" required name="nom" value="<?php echo $nom?>">
+      <label for="motifRdv">motifRdv</label>
+      <input type="text" class="form-control" id="motifRdv" value="<?php echo $motifRdv ?>" 
+      required name="motifRdv" >
     </div>
+    
     <div class="form-group col-md-6">
-      <label for="prenom">Prenom</label>
-      <input type="text" class="form-control" id="prenom"  name="prenom" required placeholder="prenom"
-       value="<?php echo $prenom?>">
+      <label for="dateRdv">dateRdv</label>
+      <input type="date" class="form-control" id="dateRdv" value="<?php echo $dateRdv ?>"  
+      name="dateRdv" required >
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-6">
-    <label for="adresse">Adresse</label>
-    <input type="text" class="form-control" id="adresse"  value="<?php echo $adresse?>" name="adresse" required placeholder="1234 Main St">
+    <label for="heureDebut">heureDebut</label>
+    <select name="heureDebut" id="heureDebut" class="form-control">
+         <?php $heure=$secretaire->selectHeure();
+         foreach($heure as $h){ ?>
+              <option  <?php if($heureDebut==$h['heure']){
+                echo "selected";
+                }?> value="<?php echo $h['heure']; ?>"> <?php echo $h['heure']; ?></option>
+       <?php
+         }
+         ?>
+      </select>
   </div>
   <div class="form-group col-md-6">
-    <label for="telephon">Telephon</label>
-    <input type="text" class="form-control" id="telephon" value="<?php echo $tel?>" name="tel" required placeholder="77 895 45 22">
+    <label for="heureFin">heureFin</label>
+    <select name="heureFin" id="heureFin" class="form-control">
+         <?php $heure=$secretaire->selectHeure();
+         foreach($heure as $h){ ?>
+              <option <?php if($heureFin==$h['heure']){
+                echo "selected";
+                }?> value="<?php echo $h['heure']; ?>"> <?php echo $h['heure']; ?></option>
+       <?php
+         }
+         ?>
+      </select>
   </div>
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-8">
-      <label for="dateNaissance">Date de naissance</label>
-      <input type="text" class="form-control"  name="dateNaissance" value="<?php echo $dateNaissance?>" required id="dateNaissance">
+    <div class="form-group ">
+      <label for="idPatient">Matricule du Patient</label>
+      <select name="idPatient"  class="form-control">
+         <?php $patient=$secretaire->selectPatient();
+         foreach($patient as $p){ ?>
+              <option value="<?php echo $p['idPatient']; ?>" <?php if($idPatient==$p['idPatient']){
+                echo "selected";
+                }?>><?php echo $p['matriculePatient']; ?></option>
+       <?php
+         }
+         ?>
+      </select>
+    </div>
+    
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="idMedecin">Id Medecin</label>
+      <input type="text"   name="idMedecin" readonly="true" value="<?php echo $idMedecin; ?>">
+    </div>
+    
+    <div class="form-group col-md-6">
+      <label for="idSecretaire"> Id Secretaire</label>
+      <input type="text"   name="idSecretaire" readonly="true" value="<?php
+          echo $idSecretaire; ?>">
     </div>
   </div>
+
+    
+   
 
   <button type="submit"  class="btn btn-primary row btn-block">Enregistrer</button>
     </form>
-
-    </div>
+   </div>
   </div>
   <footer class="row"><p class="offset-md-5 offset-sm-5 offset-xs-8">copy right 2019<br>Abdoulaye Sarr <br>Aly lY</p> <footer>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
+
 </div>
     </body>
 </html>

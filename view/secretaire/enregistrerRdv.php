@@ -1,10 +1,12 @@
 <?php
 session_start();
  include_once "../../model/Secretaire.php" ;
- 
- $tab=array();
-  $secretaire=new Secretaire($tab,1);
-  $nbrUser=$secretaire->countUser();
+
+ $tab=array('idUtilisateur'=>46,);
+
+$secretaire=new Secretaire($tab,45);
+$idMedecin=$_GET['id'];
+
 ?>
 <!DOCTYPE html>  
 <html lang="fr">
@@ -28,42 +30,80 @@ session_start();
     <?php include_once("menu.php"); ?>
     <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
       <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
-      <form method="post" action="../../controller/secretaire/addPatient.php" class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
-      <div class="form-group ">
-      <label for="matricule">Matricule</label>
-      <input type="text" class="form-control" id="matricule"  readonly="true" name="matricule"
-      value="<?php $n= $nbrUser['nbr']+1;  printf("MP-%05d",$n) ?>"/>
-    </div>
+    <form method="post" action="../../controller/secretaire/addRdv.php"
+		class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
 
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="nom">Nom</label>
-      <input type="text" class="form-control" id="nom" required name="nom" >
-    </div>
-    
-    <div class="form-group col-md-6">
-      <label for="prenom">Prenom</label>
-      <input type="text" class="form-control" id="prenom"  name="prenom" required placeholder="prenom">
-    </div>
-  </div>
-  <div class="form-row">
-  <div class="form-group col-md-6">
-    <label for="adresse">Adresse</label>
-    <input type="text" class="form-control" id="adresse"  name="adresse" required placeholder="1234 Main St">
-  </div>
-  <div class="form-group col-md-6">
-    <label for="telephon">Telephon</label>
-    <input type="text" class="form-control" id="telephon"  name="tel" required placeholder="77 895 45 22">
-  </div>
-  </div>
-    <div class="form-group ">
-      <label for="dateNaissance">Date de naissance</label>
-      <input type="text" class="form-control"  name="dateNaissance" required id="dateNaissance">
-    </div>
-  
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="motifRdv">motifRdv</label> <input type="text"
+					class="form-control" id="motifRdv" required name="motifRdv">
+			</div>
 
-  <button type="submit"  class="btn btn-primary row btn-block">Enregistrer</button>
-    </form>
+			<div class="form-group col-md-6">
+				<label for="dateRdv">dateRdv</label> <input type="date"
+					class="form-control" id="dateRdv" name="dateRdv" required>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="heureDebut">heureDebut</label> <select name="heureDebut"
+					class="form-control">
+                   <?php
+                $heure = $secretaire->selectHeure();
+                foreach ($heure as $h) {
+                    ?>
+                <option value="<?php echo $h['heure']; ?>"><?php echo $h['heure'] ?></option>
+                  <?php   } ?>
+           </select>
+			</div>
+			<div class="form-group col-md-6">
+				<label for="heureFin">heureFin</label> <select name="heureFin"
+					class="form-control">
+               <?php
+
+            $heure = $secretaire->selectHeure();
+            foreach ($heure as $h) {
+                ?>
+             <option value="<?php echo $h['heure']; ?>"><?php echo $h['heure'] ?></option>
+                 <?php } ?>
+             </select>
+			</div>
+		</div>
+
+		<div class="form-group ">
+			<label for="idPatient">Matricule du Patient</label> <select
+				name="idPatient" class="form-control">
+                     <?php
+                    $patient = $secretaire->selectPatient();
+                    foreach ($patient as $p) {
+                        ?>
+                     <option value="<?php echo $p['idPatient']; ?>"><?php echo $p['matriculePatient'] ?>
+                     </option>
+                    <?php } ?>
+      </select>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="idMedecin">Id Medecin</label> <input type="text"
+					name="idMedecin" readonly="true" value="<?php echo $idMedecin; ?>">
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for="idSecretaire"> Id Secretaire</label> <input type="text"
+					name="idSecretaire" readonly="true"
+					value="<?php
+    echo $secretaire->getIdUtilisateur();
+    ?>" />
+			</div>
+		</div>
+
+
+
+
+		<button type="submit" class="btn btn-primary row btn-block">Enregistrer</button>
+	</form>
+
    </div>
   </div>
   <footer class="row"><p class="offset-md-5 offset-sm-5 offset-xs-8">copy right 2019<br>Abdoulaye Sarr <br>Aly lY</p> <footer>
@@ -71,7 +111,7 @@ session_start();
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
+
 </div>
     </body>
 </html>

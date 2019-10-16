@@ -1,22 +1,23 @@
 <?php
 include_once "../../model/Secretaire.php" ;
-include_once "../../model/Patient.php" ;
-$matricule=trim($_POST['matricule']);
-$prenom=trim($_POST['prenom']);
-$nom=trim($_POST['nom']);
-$adresse=trim($_POST['adresse']);
-$tel=trim($_POST['tel']);
-$dateNaissance=trim($_POST['dateNaissance']);
-$patients=array(
-    'matricule'=>$matricule,
-    'nom'=>$nom,
-    'prenom'=>$prenom,
-    'adresse'=>$adresse,
-    'tel'=>$tel,
-    'dateNaissance'=>$dateNaissance,
-    'email'=>$email,
+include_once "../../model/Rdv.php" ;
+$motifRdv=trim($_POST['motifRdv']);
+$dateRdv=trim($_POST['dateRdv']);
+$heureDebut=trim($_POST['heureDebut']);
+$heureFin=trim($_POST['heureFin']);
+$idPatient=trim($_POST['idPatient']);
+$idMedecin=trim($_POST['idMedecin']);
+$idSecretaire=trim($_POST['idSecretaire']);
+$rdvs=array(
+    'motifRdv'=>$motifRdv,
+    'dateRdv'=>$dateRdv,
+    'heureDebut'=>$heureDebut,
+    'heureFin'=>$heureFin,
+    'idPatient'=>$idPatient,
+    'idMedecin'=>$idMedecin,
+    'idSecretaire'=>$idSecretaire,
 );
-$patient=new Patient($patients);
+$rdv=new Rdv($rdvs);
 $secretaire=new Secretaire(array(),1);
-$secretaire->addPatient($patient);
-header("location:../../view/secretaire/addPatient.php");
+$secretaire->addRdv($rdv);
+header("location:../../view/secretaire/listRdv.php");

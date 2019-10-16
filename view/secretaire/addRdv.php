@@ -34,30 +34,34 @@ session_start();
               <div class="medecin">
               <table class="table-light ">
                 <tr>
-                  <td> Medecin</td>
-                  <td><?php echo $m["nom"]."  ". $m["prenom"] ;?></td>
+                  <td> Prenom et Nom :</td>
+                  <td><?php echo $m["prenom"]."  ". $m["nom"] ;?></td>
                 </tr>
                 <tr>
-                  <td> Email</td>
+                  <td> Email :</td>
                   <td><?php echo $m["email"] ?></td>
                 </tr>
                 <tr>
-                  <td> Tel</td>
+                  <td> Tel :</td>
                   <td><?php echo $m["tel"] ?></td>
                 </tr>
                 <tr>
-                  <td>Adresse</td>
+                  <td>Adresse :</td>
                   <td><?php echo $m["adresse"] ?></td>
                 </tr>
                 <tr>
-                  <td> Specialite</td>
+                  <td> Service :</td>
+                  <td><?php echo $m["nomService"] ?></td>
+                </tr>
+                <tr>
+                  <td> Specialite :</td>
                   <td><?php echo $m["nomSpecialite"] ?></td>
                 </tr>
               </table>
+              <a href="enregistrerRdv.php?id=<?php echo $m['idUtilisateur'] ?>">
               <button class="btn btn-outline-primary btn-block">
-                <a href="enregistrerRdv.php?id=<?php echo $m['idUtilisateur'] ?>">
-               Prendre un RDV</a>
-              </button>
+               Prendre un RDV
+              </button></a>
               </div>
               <br>
         </div>

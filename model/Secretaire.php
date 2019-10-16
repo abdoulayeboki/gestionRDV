@@ -28,7 +28,7 @@ class Secretaire extends Utilisateur{
     //recuperer tous les patients
     public function selectPatient(){
         $bdd=Connexion::getInstance();
-        $req="select * from patient";
+        $req="select * from patient  ";
         $rep=$bdd->query($req);
         return $rep->fetchall();
         
@@ -115,7 +115,8 @@ class Secretaire extends Utilisateur{
  public function selectRdv(){
     $bdd=Connexion::getInstance();
     $req="select  * from rdv r ,patient p
-    where  r.idPatient=p.idPatient";
+    where  r.idPatient=p.idPatient
+    ORDER BY r.dateRdv DESC, r.heureDebut,r.heureFin ASC";
     $rep=$bdd->query($req);
     return $rep->fetchall();
     
@@ -142,11 +143,20 @@ class Secretaire extends Utilisateur{
  public function mesRdv(){
     $bdd=Connexion::getInstance();
     $req="select  * from rdv r,utilisateur u ,patient p
-    where r.idSecretaire=".$this->idUtilisateur." and u.idUtilisateur=r.idSecretaire and r.idPatient=p.idPatient";
+    where r.idSecretaire=".$this->idUtilisateur." 
+    and u.idUtilisateur=r.idSecretaire and r.idPatient=p.idPatient
+    ORDER BY r.dateRdv DESC , r.heureDebut,r.heureFin ASC
+    ";
     $rep=$bdd->query($req);
     return $rep->fetchAll();
     
 }
+  public function selectHeure(){
+    $bdd=Connexion::getInstance();
+    $req="select  * from heure";
+    $rep=$bdd->query($req);
+    return $rep->fetchAll();
+  }
     /**
      * @return mixed
      */

@@ -2,7 +2,9 @@
 session_start();
  include_once "../../model/Secretaire.php" ;
  
- $tab=array();
+ $tab=array(
+   'idUtiisateur'=>$_SESSION['id']
+ );
   $secretaire=new Secretaire($tab,1);
   $nbrUser=$secretaire->countUser();
 ?>

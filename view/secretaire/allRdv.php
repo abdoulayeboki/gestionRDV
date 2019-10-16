@@ -32,7 +32,6 @@ $rdv=$secretaire->selectRdv();
            <th>Date du Rdv</th>
            <th>patient</th>
            <th>Matricule patient</th>
-           <th>Action</th>
          </tr>
        </thead>
        <tbody>
@@ -44,10 +43,6 @@ $rdv=$secretaire->selectRdv();
             <td><?php echo $r["dateRdv"] ?></td>
             <td><?php echo $r["nomPatient"]." ".$r['prenomPatient'] ;?></td>
             <td><?php echo $r["matriculePatient"];?></td>
-            <td><a href="updateAllRdv.php?id=<?php echo $r['idRdv']?>">
-            <i class="fas fa-pencil-alt"></i></a>
-                  <a href="../../controller/secretaire/deleteAllRdv.php?id=<?php echo $r['idRdv'] ?>">
-                  <i class="fas fa-trash"></i></a></td>
           </tr>
          <?php } ?>
        </tbody>

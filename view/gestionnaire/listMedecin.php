@@ -10,9 +10,6 @@ session_start();
     <head>
         <title> gestionnaire    </title>
         <meta charset="utf-8"/>
-        <!-- <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
-        <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script>  -->
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,14 +26,14 @@ session_start();
         <caption>Liste des médecins disponible</caption>
        <thead class="thead">
          <tr>
-           <th>Nom</th>
-           <th>Prenom</th>
-           <th>Email</th>
-           <th>Adresse</th>
-           <th>Date</th>
-           <th>Tel</th>
-           <th>Matricule</th>
-           <th>Action</th>
+           <th scope="col">Nom</th>
+           <th scope="col">Prenom</th>
+           <th scope="col">Email</th>
+           <th scope="col">Adresse</th>
+           <th scope="col">Date</th>
+           <th scope="col">Tel</th>
+           <th scope="col">Matricule</th>
+           <th scope="col">Action</th>
          </tr>
        </thead>
        <tbody>
@@ -49,8 +46,8 @@ session_start();
             <td><?php echo $m["dateNaissance"] ?></td>
             <td><?php echo $m["tel"] ?></td>
             <td><?php echo $m["matricule"] ?></td>
-            <td><a href="updateMedecin.php?id=<?php echo $m['idUtilisateur']?>"> <i class="fas fa-pencil-alt"></i></a>
-                  <a href="../../controller/deleteMedecin.php?id=<?php echo $m['idUtilisateur'] ?>"><i class="fas fa-trash"></i></a></td>
+            <td><a href="updateMedecin.php?id=<?php echo $m['idUtilisateur']?>"> <em class="fas fa-pencil-alt"></em></a>
+                  <a href="../../controller/deleteMedecin.php?id=<?php echo $m['idUtilisateur'] ?>"><em class="fas fa-trash"></em></a></td>
           </tr>
          <?php } ?>
        </tbody>

@@ -1,7 +1,16 @@
-
+<?php
+include_once "../../model/Gestionnaire.php" ;
+include_once "../../model/Utilisateur.php" ;
+$idSession=$_SESSION['id'];
+$gestionnaire=Gestionnaire::unUtilisateur($idSession);
+foreach($gestionnaire as $g){
+    $nom=$g['nom'];
+    $prenom=$g['prenom'];
+    $matricule=$g['matricule'];
+    $status=$g['nomStatus'];
+}?>
 <nav class="navbar navbar-light bg-light navbar-fixed row">
 <div class="col-lg-2 col-md-4 col-sm-6 ">SunuClinic</div>
-<div class="">
 <div class="">
 <button type="button"  class="btn btn-light   btn-md "><a href="index.php">Accueil</a></button>
 <div class="btn-group">
@@ -38,7 +47,14 @@
             <a class="dropdown-item" href="listService.php">List  Service</a>
             </div>
             </div>
-            <a href="#"><button class="btn btn-danger btn-sm"  >Deconexion</button></a>
+                   <div class="btn-group">
+      <button type="button" class="btn btn-light  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false"><?php echo $nom." ".$prenom?></button>
+    <div class="dropdown-menu">
+     <a class="dropdown-item" href="../../controller/gestionnaire/deconnexion.php"><button class="btn btn-danger btn-sm"  >Deconexion</button></a>
+    </div>
+     </div>
+     
             </div>
             </nav>
             
@@ -51,22 +67,20 @@
             <table class="table">
             <tr>
             <td>Nom</td>
-            <td><?php foreach($unMedecin as $m){
-                echo $m['nom'];
-} ?></td>
-    </tr>  
-    <tr>
+            <td><?php echo $nom ?></td>
+            </tr>  
+     <tr>
       <td>Prenom</td>
-      <td><?php foreach($unMedecin as $m){
-        echo $m['prenom']; 
-      } ?></td>
+      <td><?php echo $prenom ?></td>
     </tr>  
     <tr>
-      <td>Adresse</td>
-      <td><?php foreach($unMedecin as $m){
-        echo $m['adresse']; 
-      } ?></td>
-    </tr>    
+      <td>Matricule</td>
+      <td><?php echo $matricule; ?></td>
+    </tr>   
+    <tr>
+      <td>Status</td>
+      <td><?php echo $status; ?></td>
+    </tr>       
     </table>
     </div>
     

@@ -1,5 +1,5 @@
 <?php
-abstract class Utilisateur{
+ class Utilisateur{
     protected $idUtilisateur;
     protected $nom;
     protected  $prenom;
@@ -29,7 +29,15 @@ abstract class Utilisateur{
            }
       }
 
-      
+      public  function __sleep()
+      {
+          return ['idUtilisateur','nom'];
+      }
+      public function __wakeup()
+      {
+        $this->getIdStatus();
+      }
+    
       /**
        * @return mixed
        */

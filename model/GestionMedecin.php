@@ -6,8 +6,8 @@ class GestionMedecin extends Gestionnaire{
     //recuperer tous les medecin
     public function selectMedecin(){
         $bdd=Connexion::getInstance();
-        $req="select * from utilisateur  u ,specialite s 
-        WHERE u.idSpecialite=s.idSpecialite
+        $req="  select * from utilisateur  u ,specialite s,service ser 
+        WHERE u.idSpecialite=s.idSpecialite and s.idService=ser.idService
         AND idStatus=".self::NIVEAU_1;
         $rep=$bdd->query($req);
         return $rep->fetchall();
@@ -28,7 +28,11 @@ class GestionMedecin extends Gestionnaire{
     //recuperer un medecin
     public function unMedecin($id){
         $bdd=Connexion::getInstance();
-        $req="select * from utilisateur where idUtilisateur=$id ";
+        $req="select * from utilisateur u,specialite s,status st
+        where idUtilisateur=$id 
+       and u.idSpecialite=s.idSpecialite
+       and u.idStatus=st.idStatus
+       and u.idStatus=".self::NIVEAU_1;
         $rep=$bdd->query($req);
         return $rep->fetchall();
         

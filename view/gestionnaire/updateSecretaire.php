@@ -28,19 +28,11 @@ foreach ($secretaire as $m){
     <head>
         <title> gestionnaire    </title>
         <meta charset="utf-8"/>
-        <!-- <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
-        <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script>  -->
-
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">
-
-       
-    </head>
-
-
+      </head>
     <body>
     <div class="container-fluid">  
      <?php include_once("menu.php"); ?>

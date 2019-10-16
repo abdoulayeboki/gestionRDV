@@ -7,11 +7,8 @@ session_start();
  include_once (WEBROOT.DS."model/Service.php" );
 
 $idService=isset($_GET['id'])?$_GET['id']:null;
-// echo $idService;
-// die();
 $gestionService=new GestionService(array());
 $service=$gestionService->unService($idService);
-//var_dump($Service);
 foreach ($service as $m){
     $nomService=$m['nomService'];
     $description=$m['description'];
@@ -26,9 +23,6 @@ foreach ($service as $m){
     <head>
         <title> gestionnaire    </title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
-        <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script> 
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

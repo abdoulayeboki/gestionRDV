@@ -34,20 +34,27 @@ include_once("GestionMedecin.php");
          'matricule'=>"M-sl77"
      );
    $t=  array(
-         "idRdv"=>2,
          "motifRdv"=>"safrrs",
          'heureDebut'=>"12:30",
            'heureFin'=>"13:00",
            'dateRdv'=>"1998-12-25",
-           'idSecretaire'=>9,
-           'idPatient'=>1,
-           'idMedecin'=>2
+           'idSecretaire'=>46,
+           'idPatient'=>5,
+           'idMedecin'=>48
      );
+
+  $rdv=new Rdv($rdv);
+  $secretaire=new Secretaire(array(),1);
+  $secretaire->addRdv($rdv);
+  die();
+ // var_dump($rdv);  die();
+
    //  $r=new Rdv($t);
    $m=new GestionMedecin(array());
      $p=new Medecin($tab,9);
     // var_dump($p);  die();
-     $a=$p->selectDossierMedical(); var_dump($a);  
+     $a=$p->getIdUtilisateur(); 
+     echo $a; die; 
    //  $m->updateMedecin($p);
      
 

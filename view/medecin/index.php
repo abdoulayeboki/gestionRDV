@@ -1,11 +1,11 @@
 <?php
 session_start();
  include_once "../../model/GestionMedecin.php" ;
- 
+ $idSession=$_SESSION['id'];
  $tab=array();
   $gestionMedecin=new GestionMedecin($tab,1);
-  $unMedecin=$gestionMedecin->unMedecin(2);
-?>
+  $unMedecin=$gestionMedecin->unMedecin($idSession);
+ ?>
 <!DOCTYPE html>  
 <html lang="fr">
     <head>

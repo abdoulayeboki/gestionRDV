@@ -2,15 +2,7 @@
 session_start();
  include_once "../../model/Secretaire.php" ;
  $tab=array(
-  'idUtilisateur'=>46,
-   'nom'=>"samba",
-   'prenom'=>'baba',
-   'adresse'=>"camara",
-   'dateNaissance'=>'1998-12-25',
-   'tel'=>'baba',
-   'adress'=>"gediawaye",
-   'email'=>"sarr@gmail.com",
-   'matricule'=>"M-sl77"
+  'idUtilisateur'=>$_SESSION['id']
 );
   $secretaire=new Secretaire($tab,423);
   $rdv=$secretaire->mesRdv();
