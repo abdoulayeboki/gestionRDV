@@ -12,19 +12,11 @@ body {
 } */
 
 .login-block {
-<<<<<<< HEAD
     /* width: 420px; */
     padding: 20px;
     background: #fff;
     border-radius: 5px;
     border-top: 5px solid darkcyan;
-=======
-    width: 320px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    border-top: 5px solid #ff656c;
->>>>>>> c85143c8941f290af2c4e47490376a594d0964ad
     margin: 0 auto;
 }
 
@@ -71,27 +63,16 @@ body {
 }
 
 .login-block input:active, .login-block input:focus {
-<<<<<<< HEAD
     border: 1px solid darkcyan;
-=======
-    border: 1px solid #ff656c;
->>>>>>> c85143c8941f290af2c4e47490376a594d0964ad
 }
 
 .login-block button {
     width: 100%;
     height: 40px;
-<<<<<<< HEAD
     background:darkcyan;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid darkcyan;
-=======
-    background: #ff656c;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #e15960;
->>>>>>> c85143c8941f290af2c4e47490376a594d0964ad
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
@@ -102,9 +83,5 @@ body {
 }
 
 .login-block button:hover {
-<<<<<<< HEAD
     background:darkgreen;
-=======
-    background: #ff7b81;
->>>>>>> c85143c8941f290af2c4e47490376a594d0964ad
 }
