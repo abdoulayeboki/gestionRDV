@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 17, 2019 at 12:22 AM
+-- Generation Time: Oct 17, 2019 at 08:31 PM
 -- Server version: 5.7.27-0ubuntu0.18.04.1
 -- PHP Version: 7.2.19-0ubuntu0.18.04.2
 
@@ -41,14 +41,13 @@ CREATE TABLE `dossierMedical` (
 --
 
 INSERT INTO `dossierMedical` (`idDossier`, `nomExamen`, `resultatExamen`, `ordonnance`, `dateExamen`, `idUtilisateur`, `idPatient`) VALUES
-(4, 'examen', 'hhjhh', 'pa', '2019-10-12 00:00:00', 53, 5),
-(5, 'examen', 'kk', 'hj', '2019-10-25 00:00:00', 53, 5),
-(6, 'examen', 'nom', 'rien', '2019-10-19 00:00:00', 28, 8),
-(7, 'examen 223', 'ok', 'non prescrit', '2019-10-19 00:00:00', 47, 10),
-(8, 'examen', 'ok', 'para', '2019-10-26 00:00:00', 47, 9),
-(9, 'examen', 'fds', 'kod', '2019-10-25 00:00:00', 47, 5),
-(10, 'Examen1', 'ok', 'para', '2019-10-16 17:52:40', 47, 7),
-(11, 'examen', 'pour', 'rien Ã  prescrir', '2019-10-16 18:14:49', 47, 9);
+(15, 'consultation gÃ©nÃ©ral', 'dossier 2', 'para', '2019-10-17 18:04:23', 63, 15),
+(16, 'consultation gÃ©nÃ©ral', 'resultat positif', 'mÃ©dicament', '2019-10-17 18:11:03', 63, 14),
+(17, 'consultation ophtalmologue', 'rÃ©sultat nÃ©gatif', 'lunette', '2019-10-17 18:12:02', 63, 15),
+(18, 'consultation gÃ©nÃ©ral', 'negatif', 'paracÃ©tamol', '2019-10-17 18:53:55', 63, 15),
+(20, 'consultation gÃ©nÃ©ral', 'positif', 'rien', '2019-10-17 20:20:32', 76, 15),
+(21, 'consultation gÃ©nÃ©ral', 'positif', 'rien', '2019-10-17 20:21:07', 76, 14),
+(22, 'consultation gÃ©nÃ©ral', 'positif', 'mÃ©dicament', '2019-10-17 20:21:25', 76, 14);
 
 -- --------------------------------------------------------
 
@@ -129,13 +128,9 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`idPatient`, `nomPatient`, `prenomPatient`, `adressePatient`, `dateNaissancePatient`, `telPatient`, `matriculePatient`) VALUES
-(5, 'moustapha', 'MAMA', 'camara', '1998-12-25', 'baba', 'M-00004'),
-(6, 'ABDOURAHMANE ALY', 'ABDOURAHMANE ALY', 'DAKAR', '2019-10-17', '7785545', 'm-00123'),
-(7, 'diama', 'MAMADOU', 'guedia', '1999-02-02', '77 952 32 56', 'M-00005'),
-(8, 'diama', 'MAMADOU ama', 'dakar', '1999-02-02', '77 952 32 56', 'M-00008'),
-(9, 'mass', 'MAMA', 'dakar', '1999-02-02', '77 952 32 56', 'MP-00005'),
-(10, 'diama', 'MAMA', 'guedia', '1999-02-04', '77 952 32 00', 'MP-00006'),
-(11, 'diama', 'MAMADOU', 'dakar', '1999-02-02', '77 952 32 56', 'MP-00007');
+(14, 'dia', 'MAMA', 'dakar', '2024-10-19', '77 952 32 56', 'MP-19-00003'),
+(15, 'diama', 'MAMA', 'guediawaye', '2019-10-19', '77 952 32 44', 'MP-16-00003'),
+(16, 'diop', 'MAMADOU ama', 'guediawaye', '2019-10-26', '77 952 32 00', 'MP-43-00003');
 
 -- --------------------------------------------------------
 
@@ -159,26 +154,18 @@ CREATE TABLE `rdv` (
 --
 
 INSERT INTO `rdv` (`idRdv`, `motifRdv`, `heureDebut`, `heureFin`, `dateRdv`, `idSecretaire`, `idPatient`, `idMedecin`) VALUES
-(3, 'palidisme', '12:15', '12:30', '2019-10-09', 48, 6, 48),
-(12, 'palidisme', '12:15', '12:30', '2019-10-09', 46, 5, 48),
-(19, 'palidisme', '12:15', '12:30', '2019-10-09', 46, 7, 48),
-(20, 'palidisme', '12:15', '12:30', '2019-10-09', 46, 7, 48),
-(21, 'palidisme', '12:15', '12:30', '2019-10-09', 46, 7, 48),
-(22, 'palidisme', '12:15', '12:30', '2019-10-09', 46, 7, 48),
-(23, 'palidisme', '12:15', '12:30', '2019-10-09', 46, 7, 48),
-(24, 'palidisme', '12:15', '12:30', '2019-10-09', 46, 7, 48),
-(25, 'palidisme', '12:15', '12:30', '2019-10-09', 46, 7, 48),
-(33, 'maladie grave', '08:00', '08:15', '2019-10-17', 46, 5, 51),
-(34, 'maladie grave', '08:00', '08:30', '2014-12-02', 46, 6, 51),
-(35, 'consultation gÃ©nÃ©ral', '08:30', '09:00', '2019-10-17', 46, 7, 47),
-(36, 'maladie grave', '08:00', '08:30', '2014-12-02', 46, 6, 51),
-(37, 'tuberculose', '08:15', '08:45', '2019-01-17', 46, 8, 53),
-(38, 'tuberculose', '09:00', '09:15', '2019-10-24', 46, 8, 53),
-(39, 'maladie grave', '08:00', '08:45', '2019-10-17', 46, 9, 53),
-(40, 'paludisme', '08:00', '08:15', '2019-10-31', 46, 6, 48),
-(41, 'ddssd', '08:00', '08:00', '2019-10-12', 46, 9, 48),
-(42, 'maladie grave', '08:00', '08:00', '2019-10-18', 46, 5, 48),
-(43, 'dent', '08:15', '08:30', '2019-10-17', 46, 9, 48);
+(51, 'consultation gÃ©nÃ©ral', '08:00', '08:15', '2019-10-26', 75, 14, 63),
+(52, 'consultation gÃ©nÃ©ral', '08:00', '08:15', '2019-10-19', 75, 14, 63),
+(53, 'consultation gÃ©nÃ©ral', '08:00', '08:15', '2019-10-18', 75, 15, 63),
+(54, 'consultation gÃ©nÃ©ral', '08:00', '08:15', '2019-10-19', 75, 15, 63),
+(55, 'consultation gÃ©nÃ©ral', '08:00', '08:15', '2019-10-26', 75, 15, 63),
+(56, 'maladie grave', '09:30', '09:45', '2019-10-02', 75, 14, 80),
+(57, 'consultation gÃ©nÃ©ral', '09:30', '10:00', '2019-10-18', 75, 15, 77),
+(58, 'tuberculose', '09:15', '09:30', '2019-10-18', 75, 15, 80),
+(59, 'consultation gÃ©nÃ©ral', '10:30', '10:15', '2019-10-16', 75, 14, 78),
+(60, 'maladie grave', '09:15', '09:30', '2019-10-15', 75, 14, 78),
+(61, 'tuberculose', '09:15', '09:45', '2019-10-13', 75, 14, 63),
+(62, 'maladie grave', '09:15', '09:00', '2019-10-05', 75, 14, 78);
 
 -- --------------------------------------------------------
 
@@ -199,7 +186,7 @@ CREATE TABLE `service` (
 INSERT INTO `service` (`idService`, `description`, `nomService`) VALUES
 (11, 'il est rare en affrique', 'service PÃ©diatre'),
 (14, 'un nouveau au senegal', 'service dentaire'),
-(16, 'service Ã  la mode', 'service 2');
+(17, 'un bon service', 'pÃ©diatrie');
 
 -- --------------------------------------------------------
 
@@ -219,8 +206,9 @@ CREATE TABLE `specialite` (
 --
 
 INSERT INTO `specialite` (`idSpecialite`, `description`, `nomSpecialite`, `idService`) VALUES
-(10, 'new', 'specialite 1', 14),
-(11, 'specialite trÃ©s reconnu', 'specialite 2', 14);
+(12, 'une premiÃ©re', 'ophtalmologue', 14),
+(13, 'mÃ©decin gÃ©nÃ©ral', 'infirmier', 14),
+(14, 'pour les enfants', 'pÃ©diatre', 11);
 
 -- --------------------------------------------------------
 
@@ -269,15 +257,15 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`idUtilisateur`, `nom`, `prenom`, `email`, `adresse`, `dateNaissance`, `tel`, `matricule`, `idStatus`, `idSpecialite`, `idService`) VALUES
-(28, 'dia', 'moussa', 'moussa@gmail.com', 'ddh', '2019-10-17', '773951254', '10', 3, NULL, NULL),
-(46, 'diama', 'MAMA', 'sarrab@gmail.com', 'guÃ©diawaye', '1999-02-02', '77777', 'M-00004', 2, NULL, 11),
-(47, 'diama', 'MAMADOU', 'sarrab@gmail.com', 'dakar', '1999-02-02', '77 952 32 56', 'M-00005', 1, 10, NULL),
-(48, 'diama', 'MAMA', 'sarrab@gmail.com', 'guedia', '1999-02-02', '77 952 32 56', 'M-00006', 1, 10, NULL),
-(51, 'diallo', 'moumar', 'moussa@gmail.com', 'dakar', '2019-10-10', '778451255', 'M-121', 1, 10, NULL),
-(52, 'ba', 'moussa oumar', 'sarr@gmail.com', 'guediawaye', '2019-10-18', '778451256', 'M-1344', 1, 10, NULL),
-(53, 'diama', 'MAMADOU', 'sarrab@gmail.com', 'dakar', '1999-02-02', '77 952 32 56', 'M-00007', 1, 10, NULL),
-(54, 'sarr', 'djiby', 'sarrab@gmail.com', 'guedia', '1999-02-01', '77 952 32 56', 'M-00008', 2, NULL, 16),
-(55, 'diama', 'MAMADOU', 'sarrab@gmail.com', 'guedia', '1999-02-01', '77 952 32 56', 'M-00009', 2, NULL, 16);
+(58, 'Sarr', 'Abdoulaye', 'moussa@gmail.com', 'dakar', '2019-10-24', '773951254', 'G-001', 3, NULL, NULL),
+(63, 'Sarr', 'Abdoulaye', 'sarrab@gmail.com', 'guediawaye', '2019-10-18', '77 952 32 01', 'M-98-010', 1, 12, NULL),
+(75, 'dia', 'MAMA', 'sarrab@gmail.com', 'guediawaye', '2019-10-13', '77 952 32 00', 'M-11-010', 2, NULL, 14),
+(76, 'Sarr', 'Abdoulaye', 'sarrab@gmail.com', 'guediawaye', '2019-10-26', '77 952 32 00', 'M-41-004', 1, 13, NULL),
+(77, 'dia', 'MAMA', 'sarrab@gmail.com', 'guediawaye', '2019-10-12', '77 952 32 56', 'M-96-005', 1, 14, NULL),
+(78, 'diop', 'MAMADOU ama', 'sarrab@gmail.com', 'guediawaye', '2019-10-26', '77 952 32 56', 'M-17-006', 1, 13, NULL),
+(79, 'dia', 'MAMA', 'sarrab@gmail.com', 'guediawaye', '2019-10-20', '77 952 32 44', 'M-45-007', 1, 14, NULL),
+(80, 'dia', 'djiby', 'sarrab@gmail.com', 'guediawaye', '2019-10-20', '77 952 32 00', 'M-68-008', 1, 12, NULL),
+(81, 'diop', 'Babacar', 'sarrab@gmail.com', 'guediawaye', '2019-10-10', '77 952 32 00', 'M-49-009', 1, 14, NULL);
 
 -- --------------------------------------------------------
 
@@ -363,7 +351,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT for table `dossierMedical`
 --
 ALTER TABLE `dossierMedical`
-  MODIFY `idDossier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idDossier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `heure`
 --
@@ -373,22 +361,22 @@ ALTER TABLE `heure`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `idPatient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idPatient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `rdv`
 --
 ALTER TABLE `rdv`
-  MODIFY `idRdv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `idRdv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `idService` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idService` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `specialite`
 --
 ALTER TABLE `specialite`
-  MODIFY `idSpecialite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idSpecialite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `status`
 --
@@ -398,7 +386,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- Constraints for dumped tables
 --
