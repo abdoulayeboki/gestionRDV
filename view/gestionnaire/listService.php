@@ -40,7 +40,8 @@ if(!(isset($_SESSION['id']))){
             <td><?php echo $s["description"] ?></td>
             <td><a href="updateService.php?id=<?php echo $s['idService']?>">
              <em class="fas fa-pencil-alt"></em></a>
-                  <a href="../../controller/deleteService.php?id=<?php echo $s['idService'] ?>">
+       <a onclick="return confirm('Etes vous sûr de vouloir supprimer. Vous risquez de supprimer toutes   les informations liées à ce service')"
+        href="../../controller/gestionnaire/deleteService.php?id=<?php echo $s['idService'] ?>">
                   <em class="fas fa-trash"></em></a></td>
           </tr>
          <?php } ?>

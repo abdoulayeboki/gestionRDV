@@ -21,4 +21,4 @@ $medecins=array(
 $medecin=new Medecin($medecins,$idSpecialite);
 $gestionMedecin=new GestionMedecin(array());
 $gestionMedecin->addMedecin($medecin);
-header("location:../../view/gestionnaire/addMedecin.php");
+header("location:../../view/gestionnaire/listMedecin.php");

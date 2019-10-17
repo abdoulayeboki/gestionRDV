@@ -19,4 +19,4 @@ $patients=array(
 $patient=new Patient($patients);
 $secretaire=new Secretaire(array(),1);
 $secretaire->addPatient($patient);
-header("location:../../view/secretaire/addPatient.php");
+header("location:../../view/secretaire/listPatient.php");

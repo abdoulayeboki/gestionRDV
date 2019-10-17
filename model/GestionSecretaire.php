@@ -16,7 +16,9 @@ class GestionSecretaire extends Gestionnaire{
     //recuperer tous les secretaire
     public function selectSecretaire(){
         $bdd=Connexion::getInstance();
-        $req="select * from utilisateur where idStatus=".self::NIVEAU_2;
+        $req="select * from utilisateur u,service s
+         where u.idService=s.idService
+         and idStatus=".self::NIVEAU_2;
         $rep=$bdd->query($req);
         return $rep->fetchall();
         

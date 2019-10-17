@@ -13,4 +13,4 @@ $services=array(
 $service=new Service($services);
 $gestionService=new GestionService(array());
 $gestionService->addService($service);
-header("location:../../view/gestionnaire/addService.php");
+header("location:../../view/gestionnaire/listService.php");

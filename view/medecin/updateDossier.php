@@ -39,7 +39,9 @@ $tab=array(
     <div class="container-fluid">  
     <?php include_once("menu.php"); ?>
     <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
-      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
+      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite 
+        la bienvenue  </marquee>
+        <h5 class="offset-md-1 remplir">Modification  d'un médecin</h5>
       <form method="post" action="../../controller/medecin/updateDossier.php?id=<?php echo $idDossier; ?>"
        class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
  
@@ -53,12 +55,13 @@ $tab=array(
       <textarea class="form-control" id="resultatExamen"   
        name="resultatExamen" required  ><?php echo $resultatExamen ;?></textarea>
     </div>
-
-    <div class="form-group ">
-      <label for="dateExamen">Date Examen</label>
-      <input type="date" class="form-control" id="dateExamen"  value="<?php echo $dateExamen ?>" 
-        name="dateExamen" required />
+    
+     <div class="form-group ">
+      <input type="dateTime" class="form-control" id="dateExamen" 
+      value="<?php  echo date("Y-m-d H:i:s");  ?>"  
+      name="dateExamen" required hidden  />
     </div>
+  
     <div class="form-group ">
       <label for="ordonnance">Ordonnance</label>
       <input type="text" class="form-control" id="ordonnance"  value="<?php echo $ordonnance ?>" 

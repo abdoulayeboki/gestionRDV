@@ -40,6 +40,7 @@ $secretaires=$gestionSecretaire->selectSecretaire();
            <th scope="col-5">Date</th>
            <th scope="col-6">Tel</th>
            <th scope="col-7">Matricule</th>
+           <th scope="col-7">Service</th>
            <th scope="col-8">Action</th>
          </tr>
        </thead>
@@ -53,9 +54,11 @@ $secretaires=$gestionSecretaire->selectSecretaire();
             <td><?php echo $s["dateNaissance"] ?></td>
             <td><?php echo $s["tel"] ?></td>
             <td><?php echo $s["matricule"] ?></td>
+            <td><?php echo $s["nomService"] ?></td>
             <td><a href="updateSecretaire.php?id=<?php echo $s['idUtilisateur']?>">
              <em class="fas fa-pencil-alt"></em></a>
-                  <a href="../../controller/deleteSecretaire.php?id=<?php echo $s['idUtilisateur'] ?>">
+        <a onclick="return confirm('Etes vous sûr de vouloir supprimer. Vous risquez de supprimer toutes   les informations liées à ce secretaire')"
+                   href="../../controller/gestionnaire/deleteSecretaire.php?id=<?php echo $s['idUtilisateur'] ?>">
                   <em class="fas fa-trash"></em></a></td>
           </tr>
          <?php } ?>

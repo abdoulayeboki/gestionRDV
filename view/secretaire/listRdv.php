@@ -4,9 +4,9 @@ if(!(isset($_SESSION['id']))){
   header("location:../../index.php");
 }
  include_once "../../model/Secretaire.php" ;
- //à remplacer par une variable de session
+ $idSession=$_SESSION['id'];
  $tab=array(
-  'idUtilisateur'=>46,);
+  'idUtilisateur'=>$idSession);
   $secretaire=new Secretaire($tab,423);
   $rdv=$secretaire->mesRdv();
   
@@ -32,13 +32,13 @@ if(!(isset($_SESSION['id']))){
         <caption>Liste des rendez-vous </caption>
        <thead class="thead">
          <tr>
-           <th>Motif</th>
-           <th>Heure début</th>
-           <th>Heure fin</th>
-           <th>Date du Rdv</th>
-           <th>patient</th>
-           <th>Matricule patient</th>
-           <th>Action</th>
+           <th scope="col">Motif</th>
+           <th scope="col">Heure début</th>
+           <th scope="col">Heure fin</th>
+           <th scope="col">Date du Rdv</th>
+           <th scope="col">patient</th>
+           <th scope="col">Matricule patient</th>
+           <th scope="col">Action</th>
          </tr>
        </thead>
        <tbody>
@@ -52,7 +52,8 @@ if(!(isset($_SESSION['id']))){
             <td><?php echo $r["matriculePatient"];?></td>
             <td><a href="updateRdv.php?id=<?php echo $r['idRdv']?>">
             <i class="fas fa-pencil-alt"></i></a>
-                  <a href="../../controller/secretaire/deleteRdv.php?id=<?php echo $r['idRdv'] ?>">
+                  <a onclick="return confirm('Etes vous sûr de vouloir supprimer ce RDV')"
+                  href="../../controller/secretaire/deleteRdv.php?id=<?php echo $r['idRdv'] ?>">
                   <i class="fas fa-trash"></i></a></td>
           </tr>
          <?php } ?>

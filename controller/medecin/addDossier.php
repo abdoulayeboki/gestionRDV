@@ -21,4 +21,4 @@ $dossierMedicals=array(
 $dossierMedical=new DossierMedical($dossierMedicals);
 $medecin=new Medecin(array(),1);
 $medecin->addDossierMedical($dossierMedical);
-header("location:../../view/medecin/addDossier.php");
+header("location:../../view/medecin/listDossier.php");

@@ -29,13 +29,13 @@ if(!(isset($_SESSION['id']))){
         <caption>Liste des patients disponibles</caption>
        <thead class="thead">
          <tr>
-           <th>Nom</th>
-           <th>Prenom</th>
-           <th>Adresse</th>
-           <th>Date</th>
-           <th>Tel</th>
-           <th>Matricule</th>
-           <th>Action</th>
+           <th scope="col">Nom</th>
+           <th scope="col">Prenom</th>
+           <th scope="col">Adresse</th>
+           <th scope="col">Date</th>
+           <th scope="col">Tel</th>
+           <th scope="col">Matricule</th>
+           <th scope="col">Action</th>
          </tr>
        </thead>
        <tbody>
@@ -48,9 +48,10 @@ if(!(isset($_SESSION['id']))){
             <td><?php echo $m["telPatient"] ?></td>
             <td><?php echo $m["matriculePatient"] ?></td>
             <td><a href="updatePatient.php?id=<?php echo $m['idPatient']?>">
-             <i class="fas fa-pencil-alt"></i></a>
-                  <a href="../../controller/secretaire/deletePatient.php?id=<?php echo $m['idPatient'] ?>">
-                  <i class="fas fa-trash"></i></a></td>
+             <em class="fas fa-pencil-alt"></em></a>
+                  <a onclick="return confirm('Etes vous sûr de vouloir supprimer. Vous risquez de supprimer toutes   les informations liées à ce patient')"
+                   href="../../controller/secretaire/deletePatient.php?id=<?php echo $m['idPatient'] ?>">
+                  <em class="fas fa-trash"></em></a></td>
           </tr>
          <?php } ?>
        </tbody>

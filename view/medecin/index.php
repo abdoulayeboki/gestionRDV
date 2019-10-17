@@ -26,8 +26,6 @@ if(!(isset($_SESSION['id']))){
       <marquee behavior="scroll" scrollamount="5">Bonjour, 
         l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
         <div class="row" >
-        <img class=" offset-md-3 col-md-7" src="../../librairie/image/h1.jpg"
-			class="img-fluid img2" alt="en charge" />
         </div>
     </div>
   

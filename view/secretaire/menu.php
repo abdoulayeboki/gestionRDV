@@ -31,9 +31,10 @@ data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Patien
 <button type="button" class="btn btn-light  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
     aria-haspopup="true" aria-expanded="false">Gestion rendez-vous</button>
     <div class="dropdown-menu">
+    <a class="dropdown-item" href="addRdv.php">Enregistrer un rendez-vous</a>
     <a class="dropdown-item" href="allRdv.php">Tous les rendez-vous</a>
     <a class="dropdown-item" href="listRdv.php">Mes  rendez-vous</a>
-    <a class="dropdown-item" href="addRdv.php">Add rendez-vous</a>
+
     </div>
     </div>
     
@@ -51,9 +52,9 @@ data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Patien
             <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 menu-lateral">
             <h1>Espace Secretaire</h1>
-            <img src="../../librairie/image/hopital.jpeg" class="img-fluid img-thumbnail img1" alt="en charge"/>
+            <img src="../../librairie/image/hopital.jpeg" class="img-fluid  img1" alt="en charge"/>
             <h1>Profil</h1>
-            <img src="../../librairie/image/m1.jpg" class="img-fluid img-thumbnail img2" alt="en charge"/>
+            <img src="../../librairie/image/m3.jpeg" class="img-fluid img2" alt="en charge"/>
             <table class="table">
           
             <tr>

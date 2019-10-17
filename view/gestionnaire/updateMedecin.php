@@ -12,7 +12,7 @@ $tab=array();
 $gestionMedecin=new GestionMedecin($tab,1);
 $medecin=$gestionMedecin->unMedecin($idUtilisateur);
 foreach ($medecin as $m){
-    $matricule=$m['matricule'];
+    $matriculeM=$m['matricule'];
     $prenom=$m['prenom'];
     $nom=$m['nom'];
     $adresse=$m['adresse'];
@@ -48,7 +48,7 @@ foreach ($medecin as $m){
       <div class="form-group ">
       <label for="matricule">Matricule</label>
       <input type="text" class="form-control" id="matricule"  readonly="true" name="matricule"
-      value="<?php  echo $matricule; ?>"/>
+      value="<?php  echo $matriculeM; ?>"/>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -78,7 +78,7 @@ foreach ($medecin as $m){
   <div class="form-row">
     <div class="form-group col-md-8">
       <label for="dateNaissance">Date de naissance</label>
-      <input type="text" class="form-control"  name="dateNaissance" value="<?php echo $dateNaissance?>" required id="dateNaissance">
+      <input type="date" class="form-control"  name="dateNaissance" value="<?php echo $dateNaissance?>" required id="dateNaissance">
     </div>
     <div class="form-group col-md-4">
       <label for="specialite" >Specialite</label>

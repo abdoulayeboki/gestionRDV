@@ -36,6 +36,11 @@ footer {
   text-align: center;
 
 }
+.remplir{
+  color:cadetblue;
+  text-shadow: 1px chartreuse;
+  
+}
 footer p {
   size: 2em;
   text-align: center;

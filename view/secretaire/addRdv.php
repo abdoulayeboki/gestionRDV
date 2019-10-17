@@ -27,12 +27,15 @@ if(!(isset($_SESSION['id']))){
     <div class="container-fluid"> 
     <?php include_once 'menu.php';?>
     <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8 ">
-      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
+      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite 
+        la bienvenue  </marquee>
+        <h5 class="offset-md-1 remplir">Ajout d'un rendez-vous</h5>
+        <p class="offset-md-3 remplir">Veuillez choisir le médecin </p>
       <div class=" row">
       <?php foreach($medecins as $m) { ?>
         <div class="col-lg-4 col-md-6 col-sm-12">
              <div class="row">
-              <img src="../../librairie/image/m1.jpg" class="img-fluid  rounded-circle img2" alt="en charge"/>
+              <img src="../../librairie/image/m2.png" class="img-fluid  rounded-circle img2" alt="en charge"/>
               </div>
               <div class="medecin">
               <table class="table-light ">

@@ -14,4 +14,4 @@ $specialites=array(
 $specialite=new Specialite($specialites);
 $gestionSpecialite=new GestionSpecialite(array());
 $gestionSpecialite->addSpecialite($specialite);
-header("location:../../view/gestionnaire/addSpecialite.php");
+header("location:../../view/gestionnaire/listSpecialite.php");

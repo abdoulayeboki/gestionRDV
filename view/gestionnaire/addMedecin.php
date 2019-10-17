@@ -8,6 +8,7 @@ if(!(isset($_SESSION['id']))){
  $tab=array();
   $gestionMedecin=new GestionMedecin($tab,1);
   $nbrUser=$gestionMedecin->countUser();
+
 ?>
 <!DOCTYPE html>  
 <html lang="fr">
@@ -27,12 +28,17 @@ if(!(isset($_SESSION['id']))){
     <div class="container-fluid">  
     <?php include_once("menu.php"); ?>
     <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
-      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
+      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite 
+        la bienvenue  </marquee>
+        <h5 class="offset-md-1 remplir">Ajout d'un médecin</h5>
+        <p class="offset-md-3 remplir">Veuillez remplir tous les champs ci-dessous  </p>
       <form method="post" action="../../controller/gestionnaire/addMedecin.php" class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
       <div class="form-group ">
       <label for="matricule">Matricule</label>
       <input type="text" class="form-control" id="matricule"  readonly="true" name="matricule"
-      value="<?php $n= $nbrUser['nbr']+1;  printf("M-%05d",$n) ?>"/>
+      value="<?php $n= $nbrUser['nbr']+1;
+       $aleatoir=rand(0,100);   printf("M-%d-%03d",$aleatoir,$n);
+       ?>"/>
     </div>
 
   <div class="form-row">
@@ -63,7 +69,7 @@ if(!(isset($_SESSION['id']))){
   <div class="form-row">
     <div class="form-group col-md-8">
       <label for="dateNaissance">Date de naissance</label>
-      <input type="text" class="form-control"  name="dateNaissance" required id="dateNaissance">
+      <input type="date" class="form-control"  name="dateNaissance" required id="dateNaissance">
     </div>
     <div class="form-group col-md-4">
       <label for="specialite" >Specialite</label>

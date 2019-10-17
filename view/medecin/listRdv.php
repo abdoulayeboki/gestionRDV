@@ -35,13 +35,13 @@ if(!(isset($_SESSION['id']))){
         <caption>Liste des rendez-vous </caption>
        <thead class="thead">
          <tr>
-           <th>Motif</th>
-           <th>Heure début</th>
-           <th>Heure fin</th>
-           <th>Date du Rdv</th>
-           <th>patient</th>
-           <th>Matricule patient</th>
-           <th>Id secretaire</th>
+           <th scope="col">Motif</th>
+           <th scope="col">Heure début</th>
+           <th scope="col">Heure fin</th>
+           <th scope="col">Date du Rdv</th>
+           <th scope="col">patient</th>
+           <th scope="col">Matricule patient</th>
+           <th scope="col">Id secretaire</th>
          </tr>
        </thead>
        <tbody>

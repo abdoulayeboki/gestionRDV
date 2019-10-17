@@ -13,7 +13,7 @@ $tab=array();
 $secretaire=new Secretaire($tab,1);
 $patient=$secretaire->unPatient($idPatient);
 foreach ($patient as $m){
-    $matricule=$m['matriculePatient'];
+     $matriculeP=$m['matriculePatient'];
     $prenom=$m['prenomPatient'];
     $nom=$m['nomPatient'];
     $adresse=$m['adressePatient'];
@@ -38,12 +38,14 @@ foreach ($patient as $m){
     <div class="container-fluid">  
      <?php  include_once ("menu.php"); ?>
     <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
-      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
+      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite 
+        la bienvenue  </marquee>
+        <h5 class="offset-md-1 remplir">Modification d'un patient</h5>
       <form method="post" action="../../controller/secretaire/updatePatient.php?id=<?php echo  $idPatient; ?>" class=" offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
       <div class="form-group ">
       <label for="matricule">Matricule</label>
       <input type="text" class="form-control" id="matricule"  readonly="true" name="matricule"
-      value="<?php  echo $matricule; ?>"/>
+      value="<?php  echo  $matriculeP; ?>"/>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -69,7 +71,7 @@ foreach ($patient as $m){
   <div class="form-row">
     <div class="form-group col-md-8">
       <label for="dateNaissance">Date de naissance</label>
-      <input type="text" class="form-control"  name="dateNaissance" value="<?php echo $dateNaissance?>" required id="dateNaissance">
+      <input type="date" class="form-control"  name="dateNaissance" value="<?php echo $dateNaissance?>" required id="dateNaissance">
     </div>
   </div>
 

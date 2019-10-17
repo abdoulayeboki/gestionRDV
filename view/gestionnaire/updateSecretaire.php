@@ -13,7 +13,7 @@ $tab=array();
 $gestionSecretaire=new GestionSecretaire($tab,1);
 $secretaire=$gestionSecretaire->unSecretaire($idUtilisateur);
 foreach ($secretaire as $m){
-    $matricule=$m['matricule'];
+    $matriculeS=$m['matricule'];
     $prenom=$m['prenom'];
     $nom=$m['nom'];
     $adresse=$m['adresse'];
@@ -45,7 +45,7 @@ foreach ($secretaire as $m){
       <div class="form-group ">
       <label for="matricule">Matricule</label>
       <input type="text" class="form-control" id="matricule"  readonly="true" name="matricule"
-      value="<?php  echo $matricule; ?>"/>
+      value="<?php  echo $matriculeS; ?>"/>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">

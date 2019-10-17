@@ -1,9 +1,9 @@
 <?php
 session_start();
-include "model/Connexion.php";
-include "model/Utilisateur.php";
-include "model/Medecin.php";
-include "model/Secretaire.php";
+include "../model/Connexion.php";
+include "../model/Utilisateur.php";
+include "../model/Medecin.php";
+include "../model/Secretaire.php";
 $bdd=Connexion::getInstance();
 $matricule=$_POST['matricule'];
 $code=$_POST['code'];
@@ -18,18 +18,18 @@ if($users !=null){
 foreach($users as $user)  {
     if($user['niveauStatus']==Utilisateur::NIVEAU_3){
     $_SESSION['id']= $user['idUtilisateur'];
-        header("location:view/gestionnaire");
+        header("location:../view/gestionnaire");
     }elseif($user['niveauStatus']==Utilisateur::NIVEAU_2){
         $_SESSION['id']= $user['idUtilisateur'];
-        header("location:view/secretaire");
+        header("location:../view/secretaire");
     }elseif($user['niveauStatus']==Utilisateur::NIVEAU_1){
         $_SESSION['id']= $user['idUtilisateur'];
-        header("location:view/medecin");
+        header("location:../view/medecin");
     }
       
     
 } 
 } else{
-    header("location:index.php"); 
+    header("location:../index.php"); 
 }
 

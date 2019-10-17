@@ -32,13 +32,13 @@ if(!(isset($_SESSION['id']))){
         <caption>Liste des dossiers client </caption>
        <thead class="thead">
          <tr>
-           <th>Examen</th>
-           <th>Resultat</th>
-           <th>Ordonnance</th>
-           <th>Date</th>
-           <th>Patient</th>
-           <th> matricule patient</th>
-           <th>Action</th>
+           <th scope="col">Examen</th>
+           <th scope="col">Resultat</th>
+           <th scope="col">Ordonnance</th>
+           <th scope="col">Date</th>
+           <th scope="col">Patient</th>
+           <th scope="col"> matricule patient</th>
+           <th scope="col">Action</th>
 
          </tr>
        </thead>
@@ -54,7 +54,8 @@ if(!(isset($_SESSION['id']))){
             <td><?php echo $d["matriculePatient"] ?></td>
             <td><a href="updateDossier.php?id=<?php echo $d['idDossier']?>">
              <i class="fas fa-pencil-alt"></i></a>
-                  <a href="../../controller/medecin/deleteDossier.php?id=<?php echo $d['idDossier'] ?>">
+         <a onclick="return confirm('Etes vous sûr de vouloir supprimer ce dossier.')"
+                  href="../../controller/medecin/deleteDossier.php?id=<?php echo $d['idDossier'] ?>">
                   <i class="fas fa-trash"></i></a></td>
           </tr>
          <?php } ?>

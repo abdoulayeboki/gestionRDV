@@ -24,7 +24,8 @@ if(!(isset($_SESSION['id']))){
     <div class="container-fluid"> 
     <?php include_once 'menu.php';?>
     <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8 ">
-      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
+      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite
+         la bienvenue  </marquee>
       <table class="table table-condensed table-responsive table-hover table-striped ">
         <caption>Liste des médecins disponible</caption>
        <thead class="thead">
@@ -36,6 +37,7 @@ if(!(isset($_SESSION['id']))){
            <th scope="col">Date</th>
            <th scope="col">Tel</th>
            <th scope="col">Matricule</th>
+           <th scope="col">Specialité</th>
            <th scope="col">Action</th>
          </tr>
        </thead>
@@ -49,8 +51,10 @@ if(!(isset($_SESSION['id']))){
             <td><?php echo $m["dateNaissance"] ?></td>
             <td><?php echo $m["tel"] ?></td>
             <td><?php echo $m["matricule"] ?></td>
+            <td><?php echo $m["nomSpecialite"] ?></td> 
             <td><a href="updateMedecin.php?id=<?php echo $m['idUtilisateur']?>"> <em class="fas fa-pencil-alt"></em></a>
-                  <a href="../../controller/deleteMedecin.php?id=<?php echo $m['idUtilisateur'] ?>"><em class="fas fa-trash"></em></a></td>
+                  <a onclick="return confirm('Etes vous sûr de vouloir supprimer. Vous risquez de supprimer toutes   les informations liées à ce medecin')"
+                   href="../../controller/gestionnaire/deleteMedecin.php?id=<?php echo $m['idUtilisateur'] ?>"><em class="fas fa-trash"></em></a></td>
           </tr>
          <?php } ?>
        </tbody>

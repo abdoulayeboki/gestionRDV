@@ -28,9 +28,9 @@ if(!(isset($_SESSION['id']))){
         <caption>Liste des specialites disponibles </caption>
        <thead class="thead">
          <tr>
-           <th>Nom du specialite</th>
-           <th>description</th>
-           <th>Action</th>
+           <th scope="col">Nom du specialite</th>
+           <th scope="col">description</th>
+           <th scope="col">Action</th>
          </tr>
        </thead>
        <tbody>
@@ -40,7 +40,8 @@ if(!(isset($_SESSION['id']))){
             <td><?php echo $s["description"] ?></td>
             <td><a href="updateSpecialite.php?id=<?php echo $s['idSpecialite']?>">
              <em class="fas fa-pencil-alt"></em></a>
-                  <a href="../../controller/gestionnaire/deleteSpecialite.php?id=<?php echo $s['idSpecialite'] ?>">
+      <a onclick="return confirm('Etes vous sûr de vouloir supprimer. Vous risquez de supprimer toutes   les informations liées à cette spécialité')"
+                   href="../../controller/gestionnaire/deleteSpecialite.php?id=<?php echo $s['idSpecialite'] ?>">
                   <em class="fas fa-trash"></em></a></td>
           </tr>
          <?php } ?>

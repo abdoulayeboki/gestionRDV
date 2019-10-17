@@ -4,21 +4,15 @@ if(!(isset($_SESSION['id']))){
   header("location:../../index.php");
 }
  include_once "../../model/Secretaire.php" ;
-
- $tab=array('idUtilisateur'=>46,);
-
-$secretaire=new Secretaire($tab,45);
-$idMedecin=$_GET['id'];
-
+ $idMedecin=$_GET['id'];
+ $tab=array('idUtilisateur'=>$_SESSION['id']);
+ $secretaire=new Secretaire($tab,45);
 ?>
 <!DOCTYPE html>  
 <html lang="fr">
     <head>
-        <title> gestionnaire    </title>
+        <title> secretaire  </title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
-        <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script> 
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
         <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,8 +26,12 @@ $idMedecin=$_GET['id'];
     <div class="container-fluid">  
     <?php include_once("menu.php"); ?>
     <div class=" col-lg-s9 col-md-8 col-sm-8 col-xs-8 ">
-      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
-      <form method="post" action="../../controller/secretaire/addRdv.php" class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite 
+        la bienvenue  </marquee>
+        <h5 class="offset-md-1 remplir">Ajout d'un rendez-vous</h5>
+        <p class="offset-md-3 remplir">Veuillez remplir les champs </p>
+      <form method="post" action="../../controller/secretaire/addRdv.php" 
+      class="needs-validation offset-lg-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
 
   <div class="form-row">
     <div class="form-group col-md-6">

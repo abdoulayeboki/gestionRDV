@@ -22,8 +22,6 @@ $secretaires=array(
     'idService'=>$idService
 );
 $secretaire=new Secretaire($secretaires,$idService);
-    // var_dump($secretaire);
-    // die();
 $gestionSecretaire=new GestionSecretaire(array());
 $gestionSecretaire->addSecretaire($secretaire);
-header("location:../../view/gestionnaire/addSecretaire.php");
+header("location:../../view/gestionnaire/listSecretaire.php");

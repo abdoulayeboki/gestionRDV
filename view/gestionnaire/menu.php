@@ -65,9 +65,9 @@ foreach($gestionnaire as $g){
             <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 menu-lateral">
             <h1>Espace Gestionnaire</h1>
-            <img src="../../librairie/image/hopital.jpeg" class="img-fluid img-thumbnail img1" alt="en charge"/>
+            <img src="../../librairie/image/hopital.jpeg" class="img-fluid  img1" alt="en charge"/>
             <h1>Profil</h1>
-            <img src="../../librairie/image/m1.jpg" class="img-fluid img-thumbnail img2" alt="en charge"/>
+            <img src="../../librairie/image/m1.jpg" class="img-fluid  img2" alt="en charge"/>
             <table class="table">
             <tr>
             <td>Nom</td>
