@@ -1,6 +1,4 @@
 $(function(){
-    $(".h").click(function(){
-        $(".p").hide();
-    });
+    $(".p1").hide();
  
 });

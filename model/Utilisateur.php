@@ -29,15 +29,6 @@
            }
       }
 
-      public  function __sleep()
-      {
-          return ['idUtilisateur','nom'];
-      }
-      public function __wakeup()
-      {
-        $this->getIdStatus();
-      }
-    
       /**
        * @return mixed
        */

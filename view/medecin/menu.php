@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
 include_once "../../model/GestionMedecin.php";
 $idSession = $_SESSION['id'];
 $gestionMedecin = new GestionMedecin(array(), 1);

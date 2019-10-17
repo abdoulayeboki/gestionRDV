@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> sr       </title>
+        <title> page d'authentification      </title>
         <meta charset="utf-8"/>
         <link rel="stylesheet"href="../librairie/bootstrap/css/bootstrap.css"/>
         <link rel="stylesheet"href="../css/style.css"/>
@@ -12,6 +12,14 @@
 
     <body>
         <div class="container-fluid">
+        <div class="row offset-md-2" style="color:seagreen; margin-top:2%;">
+         <p>Veuillez consulter la table parametres dans view au niveau de  la BDD pour se connecter à un compte<br>
+         on a trois types d'utilisateurs : les gestionnaires ont tous un code 
+             d'accés gestionnaire les secretaire ont un code d'accés secretaire  <br>
+             les médecins ont un code d'accés medecin<br>
+             pour plus d'infos au 77 953 05 06
+         </p>
+       </div>
             <div class="row">
      <form method="post" action="authentifier.php" class="offset-md-4 col-md-4 offset-md-4">
          <div class="form-group">
@@ -27,7 +35,9 @@
 </div>
     
      </form>
+  <br>
      </div>
+
      </div>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

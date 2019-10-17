@@ -29,6 +29,15 @@ class Gestionnaire extends Utilisateur{
         
     }
 
+    public static function allUser(){
+        $bdd=Connexion::getInstance();
+        $req="select * from utilisateur u,status s
+         where u.idStatus=s.idStatus";
+        $rep=$bdd->query($req);
+        return $rep->fetchall();
+        
+    }
+
     //recuperer tous les service
     public function selectService(){
         $bdd=Connexion::getInstance();

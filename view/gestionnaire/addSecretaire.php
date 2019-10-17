@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
  include_once "../../model/GestionSecretaire.php" ;
  
  $tab=array();

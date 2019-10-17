@@ -1,17 +1,17 @@
 <?php
 session_start();
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
  define("WEBROOT",dirname(dirname(dirname(__FILE__))));
  define("DS",DIRECTORY_SEPARATOR);
  include_once (WEBROOT.DS."model/Secretaire.php" );
  include_once (WEBROOT.DS."model/Patient.php" );
 
 $idPatient=isset($_GET['id'])?$_GET['id']:null;
-// echo $idPatient;
-// die();
 $tab=array();
 $secretaire=new Secretaire($tab,1);
 $patient=$secretaire->unPatient($idPatient);
-//var_dump($Patient);
 foreach ($patient as $m){
     $matricule=$m['matriculePatient'];
     $prenom=$m['prenomPatient'];

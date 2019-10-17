@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
  define("WEBROOT",dirname(dirname(dirname(__FILE__))));
  define("DS",DIRECTORY_SEPARATOR);
  include_once (WEBROOT.DS."model/GestionMedecin.php" );

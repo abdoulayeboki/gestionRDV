@@ -1,7 +1,10 @@
 <?php 
 session_start();
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
 include_once "../../model/GestionSecretaire.php" ;
-$idSession=46;//$_SESSION['id'];
+$idSession=$_SESSION['id'];
 $gestionSecretaire=new GestionSecretaire(array(),1);
 $unSecretaire=$gestionSecretaire->unSecretaire($idSession);
  foreach($unSecretaire as $s){

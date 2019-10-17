@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
  include_once "../../model/Secretaire.php" ;
   $secretaire=new Secretaire(array(),1);
   $patients=$secretaire->selectPatient();

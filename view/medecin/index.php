@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
  include_once "../../model/GestionMedecin.php" ;
  $idSession=$_SESSION['id'];
  $tab=array();
@@ -11,26 +14,23 @@ session_start();
     <head>
         <title> gestionnaire    </title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../librairie/bootstrap/dist/css/bootstrap.css"/>
-        <script> src="../librairie/bootstrap/js/jquery/dist/jquery.js"</script>
-        <script> src="../librairie/bootstrap/dist/js/bootstrap.js"</script> 
         <link rel="stylesheet" href="../../librairie/css/style.css"/>
-        <script> type="text/javascript" src="../librairie/js/scripte.js"</script> 
+        <script> type="text/javascript" src="../../librairie/js/scripte.js"</script> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="../../librairie/fontawesome/css/all.min.css">
-
-       
     </head>
-
-
     <body>
     <div class="container-fluid">
-   
    <?php include_once 'menu.php';?>
     <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8 ">
-      <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
-
+      <marquee behavior="scroll" scrollamount="5">Bonjour, 
+        l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
+        <div class="row" >
+        <img class=" offset-md-3 col-md-7" src="../../librairie/image/h1.jpg"
+			class="img-fluid img2" alt="en charge" />
+        </div>
     </div>
+  
   </div>
   <footer class="row"><p class="offset-md-5 offset-sm-5 offset-xs-8">copy right 2019<br>Abdoulaye Sarr <br>Aly lY</p> <footer>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

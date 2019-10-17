@@ -1,11 +1,16 @@
 <?php
 session_start();
- include_once "../../model/GestionSecretaire.php" ;
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
+ include_once "../../model/GestionMedecin.php" ;
+ $idSession=$_SESSION['id'];
+
 ?>
 <!DOCTYPE html>  
 <html lang="fr">
     <head>
-        <title> gestionnaire    </title>
+        <title> secretaire  </title>
         <meta charset="utf-8"/>
 
         <link rel="stylesheet" href="../../librairie/css/style.css"/>

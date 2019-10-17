@@ -1,9 +1,12 @@
 <?php
 session_start();
+if(!(isset($_SESSION['id']))){
+  header("location:../../index.php");
+}
  include_once "../../model/Secretaire.php" ;
+ //à remplacer par une variable de session
  $tab=array(
-  'idUtilisateur'=>$_SESSION['id']
-);
+  'idUtilisateur'=>46,);
   $secretaire=new Secretaire($tab,423);
   $rdv=$secretaire->mesRdv();
   
