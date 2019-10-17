@@ -1,0 +1,55 @@
+.menu-lateral{
+  height:100%;
+  background-color: darkcyan;
+  border-radius: 5px;
+}
+.menu-lateral .img1{
+  margin-top: 2%;
+  width: 100%;
+}
+.menu-lateral .img2{
+  margin-top: 10%;
+  width: 100%;
+  margin-bottom: 5%;
+}
+.menu-lateral h1{
+ text-align: center;
+ margin-top: 5%;
+ color: white;
+ font-style: italic;
+}
+.thead{
+  background-color: chocolate;
+}
+marquee{
+  background-color: darkcyan;
+  color: chartreuse;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: chocolate;
+  size: 2em;
+  margin-top: 2%;
+  text-align: center;
+
+}
+.remplir{
+  color:cadetblue;
+  text-shadow: 1px chartreuse;
+  
+}
+footer p {
+  size: 2em;
+  text-align: center;
+
+}
+.dropdown-menu{
+  background-color: chocolate;
+  
+}
+.medecin{
+  margin-left:2%;
+}
