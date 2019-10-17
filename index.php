@@ -17,7 +17,6 @@
              pour plus d'infos au 77 953 05 06
          </p>
        </div>
-     <form method="post" action="authentifier.php" >
      <div class="logo"></div>
 <div class="login-block">
     <h1>Login</h1>
