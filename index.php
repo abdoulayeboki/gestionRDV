@@ -3,40 +3,30 @@
     <head>
         <title> page d'authentification      </title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet"href="../librairie/bootstrap/css/bootstrap.css"/>
-        <link rel="stylesheet"href="../css/style.css"/>
-        <script>src="../librairie/bootstrap/js/jquery.js"</script>
-        <script>src="../librairie/bootstrap/js/bootstrap.js"</script>
+        <link rel="stylesheet"href="librairie/css/template.css"/>
        
     </head>
 
     <body>
         <div class="container-fluid">
-        <div class="row offset-md-2" style="color:seagreen; margin-top:2%;">
-         <p>Veuillez consulter la table parametres dans view au niveau de  la BDD pour se connecter à un compte<br>
+        <div class="row offset-md-2" style="color:black; font-weigh:bold; size:1.2em; margin-top:2%;">
+         <p>Veuillez consulter la table parametres dans view au niveau de  la BDD <br>pour se connecter à un compte<br>
          on a trois types d'utilisateurs : les gestionnaires ont tous un code 
-             d'accés gestionnaire les secretaire ont un code d'accés secretaire  <br>
+             d'accés gestionnaire <br>les secretaire ont un code d'accés secretaire  <br>
              les médecins ont un code d'accés medecin<br>
              pour plus d'infos au 77 953 05 06
          </p>
        </div>
-            <div class="row">
-     <form method="post" action="authentifier.php" class="offset-md-4 col-md-4 offset-md-4">
-         <div class="form-group">
-         <label>Matricule </label>  
-         <input type="text" name="matricule" placeholder="matricule" class="form-control"/>  
+     <form method="post" action="authentifier.php" class="offset-md-3 col-md-6" >
+     <div class="logo"></div>
+<div class="login-block">
+    <h1>Login</h1>
+    <input type="text" name="matricule" value="" placeholder="Username" id="username" />
+    <input type="password" name="code" value="" placeholder="Password" id="password" />
+    <button>Submit</button>
 </div>
-         <div class="form-group">
-         <label>Code d'accés </label>  
-         <input type="text" name="code" placeholder="code" class="form-control"/>  
 </div>
-<div class="form-group">
-         <input type="submit" name="submit"  class=" btn-primary form-control"/>  
-</div>
-    
-     </form>
-  <br>
-     </div>
+</form>
 
      </div>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
