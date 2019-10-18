@@ -16,7 +16,7 @@ $unSecretaire=$gestionSecretaire->unSecretaire($idSession);
 
 ?>
 <nav class="navbar navbar-light bg-light navbar-fixed row">
-<div class="col-lg-2 col-md-4 col-sm-6 ">SunuClinic</div>
+<div id="logo" class="col-lg-2 col-md-4 col-sm-6 ">SunuClinic</div>
 <button type="button"  class="btn btn-light   btn-md "><a href="index.php">Accueil</a></button>
 <div class="btn-group">
 <button type="button"  class="btn btn-light   btn-block dropdown-toggle dropdown-toggle-split" 

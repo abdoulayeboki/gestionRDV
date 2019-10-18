@@ -53,3 +53,11 @@ footer p {
 .medecin{
   margin-left:2%;
 }
+.menu-droit{
+  background-color: darkgreen;
+}
+#logo{
+  color: goldenrod;
+  font-weight: bold;
+  size: 1.2em;
+}
