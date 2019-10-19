@@ -38,7 +38,7 @@ data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion dossie
     
       <div class="btn-group">
       <button type="button" class="btn btn-light  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false"><?php echo $nom." ".$prenom?></button>
+    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i><?php echo $nom." ".$prenom?></button>
     <div class="dropdown-menu">
      <a class="dropdown-item" href="../../controller/gestionnaire/deconnexion.php"><button class="btn btn-danger btn-sm"  >Deconexion</button></a>
     </div>
