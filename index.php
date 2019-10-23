@@ -17,10 +17,14 @@
              pour plus d'infos au 77 953 05 06
          </p>
        </div>
+       
      <form method="post" action="controller/authentifier.php" class="offset-md-3 col-md-6" >
-     <div class="logo"></div>
+     <div class="logo"> </div>
 <div class="login-block">
     <h1>Login</h1>
+    <p style="color:darkred"> <?php if(isset($_GET['id'])){
+        echo "Le matricule ou code d'accés est invalide";
+    } ?> </p> 
     <input type="text" name="matricule" value="" placeholder="Matricule" id="username" />
     <input type="password" name="code" value="" placeholder="Code d'accés" id="password" />
     <button>Submit</button>
