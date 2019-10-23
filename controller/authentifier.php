@@ -30,6 +30,6 @@ foreach($users as $user)  {
     
 } 
 } else{
-    header("location:../index.php"); 
+    header("location:../index.php?id=erreur"); 
 }
 

@@ -46,7 +46,7 @@ footer p {
   text-align: center;
 
 }
-.dropdown-menu{
+.dropdown-item{
   background-color: chocolate;
   
 }
@@ -57,7 +57,7 @@ footer p {
   background-color: darkgreen;
 }
 #logo{
-  color: goldenrod;
+  color:darkgreen;
   font-weight: bold;
   size: 1.2em;
 }
