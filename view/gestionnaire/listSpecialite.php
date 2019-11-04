@@ -24,7 +24,7 @@ if(!(isset($_SESSION['id']))){
     <?php include_once 'menu.php';?>
     <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8 ">
       <marquee behavior="scroll" scrollamount="5">Bonjour, l'équipe de SunuClinic vous souhaite la bienvenue  </marquee>
-      <table class="table table-condensed table-responsive table-hover table-striped ">
+      <table class="table table-condensed  offset-md-2  table-responsive table-hover table-striped ">
         <caption>Liste des specialites disponibles </caption>
        <thead class="thead">
          <tr>
